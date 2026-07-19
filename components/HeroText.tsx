@@ -1,56 +1,13 @@
 "use client"
 
-import { useEffect, useRef, useState, useId } from "react"
+import { useEffect, useRef, useId } from "react"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowRight, Phone } from "lucide-react"
+import { Magnetic } from "./Magnetic"
 
 gsap.registerPlugin(ScrollTrigger)
-
-function MagneticButton({
-  href,
-  target,
-  rel,
-  className,
-  children,
-}: {
-  href: string
-  target?: string
-  rel?: string
-  className: string
-  children: React.ReactNode
-}) {
-  const ref = useRef<HTMLAnchorElement>(null)
-  const [pos, setPos] = useState({ x: 0, y: 0 })
-
-  const onMove = (e: React.MouseEvent) => {
-    if (!ref.current) return
-    const r = ref.current.getBoundingClientRect()
-    setPos({
-      x: (e.clientX - r.left - r.width / 2) * 0.3,
-      y: (e.clientY - r.top - r.height / 2) * 0.3,
-    })
-  }
-
-  const onLeave = () => setPos({ x: 0, y: 0 })
-
-  return (
-    <motion.a
-      ref={ref}
-      href={href}
-      target={target}
-      rel={rel}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      animate={{ x: pos.x, y: pos.y }}
-      transition={{ type: "spring", stiffness: 200, damping: 18, mass: 0.5 }}
-      className={className}
-    >
-      {children}
-    </motion.a>
-  )
-}
 
 export function HeroText() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -109,22 +66,26 @@ export function HeroText() {
       </p>
 
       <div className={`${lineClass} pt-4 flex flex-wrap gap-4`}>
-        <MagneticButton
-          href="#about"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-saffron text-white font-semibold rounded-lg shadow-md hover:bg-saffron-dark transition-colors cursor-none"
-        >
-          Explore the Journey
-          <ArrowRight className="w-4 h-4" />
-        </MagneticButton>
-        <MagneticButton
-          href="https://wa.me/91XXXXXXXXXX"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 border-2 border-green text-green font-semibold rounded-lg hover:bg-green hover:text-white transition-colors cursor-none"
-        >
-          <Phone className="w-4 h-4" />
-          Connect Instantly
-        </MagneticButton>
+        <Magnetic>
+          <a
+            href="#about"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-saffron text-white font-semibold rounded-lg shadow-md hover:bg-saffron-dark transition-colors cursor-none"
+          >
+            Explore the Journey
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </Magnetic>
+        <Magnetic>
+          <a
+            href="https://wa.me/91XXXXXXXXXX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-green text-green font-semibold rounded-lg hover:bg-green hover:text-white transition-colors cursor-none"
+          >
+            <Phone className="w-4 h-4" />
+            Connect Instantly
+          </a>
+        </Magnetic>
       </div>
     </div>
   )

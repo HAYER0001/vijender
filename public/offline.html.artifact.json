@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "public/offline.html",
+  "entry": "public/offline.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-07-19T06:35:58.894Z",
+  "updatedAt": "2026-07-19T06:35:58.894Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

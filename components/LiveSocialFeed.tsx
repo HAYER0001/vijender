@@ -25,7 +25,7 @@ function SocialCard({ post }: { post: SocialPost }) {
   const imgSrc = postImages[post.id]
 
   return (
-    <div className="bg-[#FDFBF7] border border-saffron/20 rounded-2xl shadow-lg shadow-saffron/5 overflow-hidden">
+    <div className="bg-[var(--page-surface)] border border-saffron/20 rounded-2xl shadow-lg shadow-saffron/5 overflow-hidden">
       <div className="p-5 sm:p-7">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-saffron/20 to-green/20 flex items-center justify-center font-display font-bold text-green text-lg shrink-0">

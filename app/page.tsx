@@ -7,7 +7,7 @@ export const revalidate = 3600
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#FDFBF7]">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[var(--page-bg)]">
         <HeroCanvas />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">

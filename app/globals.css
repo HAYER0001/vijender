@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-bg: #FDFBF7;
   --color-fg: #1F2937;
+  --color-surface: #ffffff;
   --color-saffron: #FF9933;
   --color-saffron-dark: #d47f2a;
   --color-green: #0F523A;
@@ -17,15 +20,32 @@
   --font-mukta: var(--font-mukta), system-ui, sans-serif;
 }
 
+:root {
+  --page-bg: #FDFBF7;
+  --page-fg: #1F2937;
+  --page-surface: #ffffff;
+  --page-border: #E2E8F0;
+}
+
+.dark {
+  --color-bg: #0a0f1a;
+  --color-fg: #E8EAF2;
+  --color-surface: #121826;
+  --page-bg: #0a0f1a;
+  --page-fg: #E8EAF2;
+  --page-surface: #121826;
+  --page-border: #1E293B;
+}
+
 body {
-  background: var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-fg);
-  font-family: var(--font-body);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 ::selection {
   background: #FF9933;
-  color: #1F2937;
+  color: #FFFFFF;
 }
 
 @media (prefers-reduced-motion: reduce) {

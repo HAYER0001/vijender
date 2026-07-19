@@ -44,7 +44,7 @@ export function SkeletonLoader() {
           key="skeleton"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[100] bg-[#FDFBF7] flex items-center justify-center"
+          className="fixed inset-0 z-[100] bg-[var(--page-bg)] flex items-center justify-center"
         >
           <div className="flex flex-col items-center gap-6">
             <div

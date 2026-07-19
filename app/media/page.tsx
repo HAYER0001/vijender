@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function MediaPage() {
   return (
-    <div className="bg-[#FDFBF7] min-h-screen pt-32 pb-20">
+    <div className="bg-[var(--page-bg)] min-h-screen pt-32 pb-20">
       <SchemaMarkup type="Person" />
       <SchemaMarkup type="GovernmentOrganization" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

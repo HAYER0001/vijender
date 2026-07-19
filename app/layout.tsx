@@ -6,6 +6,9 @@ import { GlobalNav } from "@/components/GlobalNav"
 import { GlobalFooter } from "@/components/GlobalFooter"
 import { StickyContact } from "@/components/sections/StickyContact"
 import { SchemaMarkup } from "@/components/SchemaMarkup"
+import { AnimatePresenceWrapper } from "@/components/AnimatePresenceWrapper"
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister"
+import { ThemeProvider } from "@/components/ThemeProvider"
 import { SmoothScroll } from "@/components/sections/SmoothScroll"
 import "./globals.css"
 
@@ -88,19 +91,31 @@ export default function RootLayout({
     >
       <head>
         <link rel="canonical" href={baseUrl} />
+        <link rel="apple-touch-icon" href="/images/bjp-icon.png" />
+        <link rel="apple-touch-startup-image" href="/images/bjp-logo.png" />
         <meta name="geo.region" content="IN-RJ" />
         <meta name="geo.placename" content="Sri Karanpur" />
+        <meta name="theme-color" content="#FF9933" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Vijender Pal Singh" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="min-h-screen antialiased bg-[#FDFBF7] text-[#1F2937] font-body">
+      <body className="min-h-screen antialiased font-body">
+        <ThemeProvider>
         <SkeletonLoader />
         <CustomCursor />
+        <ServiceWorkerRegister />
         <GlobalNav />
         <SchemaMarkup type="Person" />
         <SmoothScroll>
-          <main className="pt-16 lg:pt-20">{children}</main>
+          <AnimatePresenceWrapper>
+            <main className="pt-16 lg:pt-20">{children}</main>
+          </AnimatePresenceWrapper>
           <GlobalFooter />
         </SmoothScroll>
         <StickyContact />
+        </ThemeProvider>
       </body>
     </html>
   )

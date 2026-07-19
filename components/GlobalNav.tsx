@@ -1,10 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Menu, X, Phone } from "lucide-react"
+import { Magnetic } from "./Magnetic"
+import { ThemeToggle } from "./ThemeToggle"
+import { PredictiveSearch } from "./PredictiveSearch"
 
 const ROUTES = [
   { label: "Home", href: "/" },
@@ -44,11 +47,11 @@ export function GlobalNav() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#FDFBF7]/80 backdrop-blur-xl border-b border-[#FF9933]/10 shadow-sm"
-            : "bg-[#FDFBF7]/50 backdrop-blur-sm"
-        }`}
+              className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+              scrolled
+                ? "bg-[var(--page-bg)]/80 backdrop-blur-xl border-b border-[var(--page-border)] shadow-sm"
+                : "bg-[var(--page-bg)]/50 backdrop-blur-sm"
+            }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -92,38 +95,43 @@ export function GlobalNav() {
               {ROUTES.map((route) => {
                 const isActive = pathname === route.href
                 return (
-                  <Link
-                    key={route.href}
-                    href={route.href}
-                    data-magnetic
-                    className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 font-[family-name:var(--font-mukta)] ${
-                      isActive
-                        ? "text-[#FF9933] bg-[#FF9933]/5"
-                        : "text-[#4A5568] hover:text-[#FF9933] hover:bg-[#FF9933]/5"
-                    }`}
-                  >
-                    {route.label}
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-indicator"
-                        className="absolute -bottom-0.5 left-2 right-2 h-0.5 bg-[#FF9933] rounded-full"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </Link>
+                  <Magnetic key={route.href}>
+                    <Link
+                      href={route.href}
+                      data-magnetic
+                      className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 font-[family-name:var(--font-mukta)] ${
+                        isActive
+                          ? "text-[#FF9933] bg-[#FF9933]/5"
+                          : "text-[#4A5568] hover:text-[#FF9933] hover:bg-[#FF9933]/5"
+                      }`}
+                    >
+                      {route.label}
+                      {isActive && (
+                        <motion.span
+                          layoutId="nav-indicator"
+                          className="absolute -bottom-0.5 left-2 right-2 h-0.5 bg-[#FF9933] rounded-full"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+                  </Magnetic>
                 )
               })}
-              <div className="ml-4 pl-4 border-l border-[#FF9933]/10">
-                <a
-                  href="https://wa.me/91XXXXXXXXXX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-magnetic
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF9933] text-white text-sm font-semibold hover:bg-[#E67E22] transition-all duration-300 font-[family-name:var(--font-mukta)]"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  Connect
-                </a>
+              <div className="flex items-center gap-2 ml-3 pl-3 border-l border-[var(--page-border)]">
+                <Suspense fallback={null}><PredictiveSearch /></Suspense>
+                <div className="flex items-center gap-2 pl-2 border-l border-[var(--page-border)]">
+                  <ThemeToggle />
+                  <a
+                    href="https://wa.me/91XXXXXXXXXX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-magnetic
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF9933] text-white text-sm font-semibold hover:bg-[#E67E22] transition-all duration-300 font-[family-name:var(--font-mukta)]"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    Connect
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -150,7 +158,10 @@ export function GlobalNav() {
             className="absolute inset-0 bg-black/20 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
-          <div className="absolute top-16 left-4 right-4 bg-[#FDFBF7]/95 backdrop-blur-xl rounded-2xl border border-[#FF9933]/10 shadow-xl p-6">
+          <div className="absolute top-16 left-4 right-4 bg-[var(--page-bg)]/95 backdrop-blur-xl rounded-2xl border border-[var(--page-border)] shadow-xl p-6">
+            <div className="mb-4">
+              <Suspense fallback={null}><PredictiveSearch /></Suspense>
+            </div>
             <div className="flex flex-col gap-2">
               {ROUTES.map((route) => {
                 const isActive = pathname === route.href
@@ -162,13 +173,19 @@ export function GlobalNav() {
                     className={`px-4 py-3 rounded-xl text-base font-medium transition-colors font-[family-name:var(--font-mukta)] ${
                       isActive
                         ? "bg-[#FF9933]/10 text-[#FF9933]"
-                        : "text-[#1F2937] hover:bg-[#FF9933]/5 hover:text-[#FF9933]"
+                        : "text-[var(--page-fg)] hover:bg-[#FF9933]/5 hover:text-[#FF9933]"
                     }`}
                   >
                     {route.label}
                   </Link>
                 )
               })}
+              <div className="flex items-center gap-3 mt-3 px-4 py-2">
+                <span className="text-xs font-medium text-[var(--page-fg)]/60 font-[family-name:var(--font-mukta)]">
+                  Theme
+                </span>
+                <ThemeToggle />
+              </div>
               <a
                 href="https://wa.me/91XXXXXXXXXX"
                 target="_blank"

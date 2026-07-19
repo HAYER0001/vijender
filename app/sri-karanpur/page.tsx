@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function SriKaranpurPage() {
   return (
-    <div className="bg-[#FDFBF7] min-h-screen pt-32 pb-20">
+    <div className="bg-[var(--page-bg)] min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="font-display text-5xl font-bold text-green">

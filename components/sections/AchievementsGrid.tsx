@@ -102,7 +102,7 @@ export function AchievementsGrid() {
     <section
       ref={sectionRef}
       id="achievements"
-      className="py-28 sm:py-36 bg-[#FDFBF7]"
+      className="py-28 sm:py-36 bg-[var(--page-bg)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -147,7 +147,7 @@ export function AchievementsGrid() {
                     className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-[#FDFBF7]/90 backdrop-blur-[2px]" />
+                  <div className="absolute inset-0 bg-[var(--page-bg)]/90 backdrop-blur-[2px]" />
                 </div>
 
                 <div className="relative z-10">

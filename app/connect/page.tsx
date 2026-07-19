@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ConnectPage() {
   return (
-    <div className="bg-[#FDFBF7] min-h-screen pt-20">
+    <div className="bg-[var(--page-bg)] min-h-screen pt-20">
       <ConversationalForm />
     </div>
   )

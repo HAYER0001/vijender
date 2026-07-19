@@ -178,7 +178,7 @@ export function JourneyTimeline() {
     <section
       ref={sectionRef}
       id="journey"
-      className="relative py-28 sm:py-36 bg-[#FDFBF7] overflow-hidden"
+      className="relative py-28 sm:py-36 bg-[var(--page-bg)] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

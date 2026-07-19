@@ -56,7 +56,7 @@ const PRESS_ITEMS = [
 
 export function PressReleaseFeed() {
   return (
-    <section id="press" className="py-28 sm:py-36 bg-[#FDFBF7]">
+    <section id="press" className="py-28 sm:py-36 bg-[var(--page-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FeedAnimator>
           <div className="text-center max-w-2xl mx-auto mb-16">

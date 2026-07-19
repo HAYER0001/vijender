@@ -13,6 +13,7 @@ import {
   Tag,
   FileText,
 } from "lucide-react"
+import { Magnetic } from "./Magnetic"
 
 const AREAS = [
   "Padampur", "Sri Karanpur City", "Ganganagar", "Anupgarh",
@@ -145,7 +146,7 @@ export function ConversationalForm() {
   return (
     <section
       id="contact"
-      className="relative py-28 sm:py-36 bg-[#FDFBF7] overflow-hidden"
+      className="relative py-28 sm:py-36 bg-[var(--page-bg)] overflow-hidden"
     >
       <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-saffron/[0.03] blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-green/[0.03] blur-3xl pointer-events-none" />
@@ -288,45 +289,51 @@ export function ConversationalForm() {
             </div>
 
             <div className="flex items-center justify-between mt-8 pt-6 border-t border-green/5">
-              <button
-                onClick={goBack}
-                disabled={step === 0}
-                className={`flex items-center gap-1.5 text-sm font-medium transition-all ${
-                  step === 0
-                    ? "text-fg/20 cursor-not-allowed"
-                    : "text-fg/50 hover:text-saffron"
-                }`}
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back
-              </button>
+              <Magnetic>
+                <button
+                  onClick={goBack}
+                  disabled={step === 0}
+                  className={`flex items-center gap-1.5 text-sm font-medium transition-all ${
+                    step === 0
+                      ? "text-fg/20 cursor-not-allowed"
+                      : "text-fg/50 hover:text-saffron"
+                  }`}
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Back
+                </button>
+              </Magnetic>
 
               {step < 3 ? (
-                <button
-                  onClick={goNext}
-                  disabled={!canProceed}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-                    canProceed
-                      ? "bg-saffron text-white shadow-md shadow-saffron/20 hover:bg-saffron-dark active:scale-[0.97]"
-                      : "bg-green/5 text-fg/30 cursor-not-allowed"
-                  }`}
-                >
-                  Next
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                <Magnetic>
+                  <button
+                    onClick={goNext}
+                    disabled={!canProceed}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                      canProceed
+                        ? "bg-saffron text-white shadow-md shadow-saffron/20 hover:bg-saffron-dark active:scale-[0.97]"
+                        : "bg-green/5 text-fg/30 cursor-not-allowed"
+                    }`}
+                  >
+                    Next
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </Magnetic>
               ) : (
-                <button
-                  onClick={handleSubmit}
-                  disabled={!canProceed}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-                    canProceed
-                      ? "bg-green text-white shadow-md shadow-green/20 hover:bg-green-light active:scale-[0.97]"
-                      : "bg-green/5 text-fg/30 cursor-not-allowed"
-                  }`}
-                >
-                  <Send className="w-4 h-4" />
-                  Send via WhatsApp
-                </button>
+                <Magnetic>
+                  <button
+                    onClick={handleSubmit}
+                    disabled={!canProceed}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                      canProceed
+                        ? "bg-green text-white shadow-md shadow-green/20 hover:bg-green-light active:scale-[0.97]"
+                        : "bg-green/5 text-fg/30 cursor-not-allowed"
+                    }`}
+                  >
+                    <Send className="w-4 h-4" />
+                    Send via WhatsApp
+                  </button>
+                </Magnetic>
               )}
             </div>
           </div>
@@ -343,31 +350,35 @@ export function ConversationalForm() {
           {stepLabels[step]}
         </span>
         {step < 3 ? (
-          <button
-            onClick={goNext}
-            disabled={!canProceed}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-              canProceed
-                ? "bg-saffron text-white shadow-md shadow-saffron/20"
-                : "bg-green/5 text-fg/30 cursor-not-allowed"
-            }`}
-          >
-            Next
-            <ChevronRight className="w-4 h-4" />
-          </button>
+          <Magnetic>
+            <button
+              onClick={goNext}
+              disabled={!canProceed}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                canProceed
+                  ? "bg-saffron text-white shadow-md shadow-saffron/20"
+                  : "bg-green/5 text-fg/30 cursor-not-allowed"
+              }`}
+            >
+              Next
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </Magnetic>
         ) : (
-          <button
-            onClick={handleSubmit}
-            disabled={!canProceed}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-              canProceed
-                ? "bg-green text-white shadow-md shadow-green/20"
-                : "bg-green/5 text-fg/30 cursor-not-allowed"
-            }`}
-          >
-            <Send className="w-4 h-4" />
-            Send
-          </button>
+          <Magnetic>
+            <button
+              onClick={handleSubmit}
+              disabled={!canProceed}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
+                canProceed
+                  ? "bg-green text-white shadow-md shadow-green/20"
+                  : "bg-green/5 text-fg/30 cursor-not-allowed"
+              }`}
+            >
+              <Send className="w-4 h-4" />
+              Send
+            </button>
+          </Magnetic>
         )}
       </div>
     </section>

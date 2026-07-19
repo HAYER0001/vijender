@@ -33,7 +33,7 @@ const QAS = [
 
 export function AIAnswerBlock() {
   return (
-    <section id="faq" className="py-28 sm:py-36 bg-[#FDFBF7]">
+    <section id="faq" className="py-28 sm:py-36 bg-[var(--page-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-display font-semibold text-saffron text-sm tracking-widest uppercase flex items-center justify-center gap-2">

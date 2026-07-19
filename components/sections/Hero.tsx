@@ -5,7 +5,7 @@ import { HeroText } from "@/components/HeroText"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FDFBF7]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--page-bg)]">
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <Image
           src="/images/saffron-banner.jpg"
