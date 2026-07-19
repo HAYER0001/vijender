@@ -10,6 +10,7 @@ const ROUTES = [
   { label: "Home", href: "/" },
   { label: "My Journey", href: "/journey" },
   { label: "Sri Karanpur", href: "/sri-karanpur" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Media", href: "/media" },
   { label: "Connect", href: "/connect" },
 ]
