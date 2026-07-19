@@ -10,6 +10,17 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[var(--page-bg)]">
         <HeroCanvas />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row items-center gap-12">
+          <div className="relative w-full max-w-md aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl">
+            <Image
+              src="/hero-portrait.png"
+              alt="Vijender Pal Singh"
+              fill
+              className="object-cover"
+              priority
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDw0NDQ8NDw0NDw0NDQ0NDQ0NDQ0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFQ0PFSsdFR0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBBgMBIgACEQEDEQH..."
+            />
+          </div>
           <div className="flex-1 space-y-6">
             <h1 className="font-display text-5xl md:text-7xl font-bold text-green leading-tight">
               A Legacy of <br />
@@ -18,17 +29,6 @@ export default function Home() {
             <p className="text-lg md:text-xl text-fg/80 max-w-xl font-body">
               Vijender Pal Singh has been working for the people of Sri Karanpur since 1993. A dedicated BJP Karyakarta, driving infrastructure, social justice, and community welfare. Sabka Sath, Sabka Vikas.
             </p>
-          </div>
-          <div className="relative w-full max-w-md aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl">
-            <Image
-              src="/hero-portrait.jpg"
-              alt="Vijender Pal Singh"
-              fill
-              className="object-cover"
-              priority
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDw0NDQ8NDw0NDw0NDQ0NDQ0NDQ0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFQ0PFSsdFR0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBBgMBIgACEQEDEQH..."
-            />
           </div>
         </div>
       </section>

@@ -150,7 +150,7 @@ function FallbackImage() {
         }}
       >
         <Image
-          src="/hero-portrait.jpg"
+          src="/hero-portrait.png"
           alt="Vijender Pal Singh"
           fill
           className="object-cover"
