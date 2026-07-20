@@ -27,8 +27,8 @@ export function ParallaxImage({ children, offset = 100, className = "" }: { chil
   const y = useTransform(scrollYProgress, [0, 1], [-offset, offset])
   
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`}>
-      <motion.div style={{ y }} className="absolute inset-[-15%] w-[130%] h-[130%]">
+    <div ref={ref} className={`relative ${className}`}>
+      <motion.div style={{ y }} className="w-full h-full">
         {children}
       </motion.div>
     </div>
@@ -39,27 +39,27 @@ export function KineticHeadline({ text, highlightText }: { text: string, highlig
   const letters = Array.from(text)
   
   return (
-    <div className="flex flex-wrap overflow-hidden leading-[1.1] pb-2">
+    <div className="flex flex-wrap justify-center lg:justify-start overflow-hidden leading-[1.1] pb-2">
       {letters.map((letter, i) => (
         <motion.span
           key={i}
           initial={{ opacity: 0, y: 50, rotate: 10 }}
           animate={{ opacity: 1, y: 0, rotate: 0 }}
           transition={{ duration: 0.5, delay: i * 0.04, type: "spring", stiffness: 100 }}
-          className={letter === " " ? "w-4 md:w-8" : ""}
+          className={`inline-block ${letter === " " ? "w-3 md:w-6" : ""}`}
         >
           {letter}
         </motion.span>
       ))}
       {highlightText && (
-        <div className="w-full flex overflow-hidden pt-2">
+        <div className="w-full flex justify-center lg:justify-start overflow-hidden pt-2">
           {Array.from(highlightText).map((letter, i) => (
             <motion.span
               key={`h-${i}`}
               initial={{ opacity: 0, y: 50, rotate: 10 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
               transition={{ duration: 0.5, delay: (letters.length + i) * 0.04, type: "spring", stiffness: 100 }}
-              className={`text-saffron ${letter === " " ? "w-4 md:w-8" : ""}`}
+              className={`inline-block text-saffron ${letter === " " ? "w-3 md:w-6" : ""}`}
             >
               {letter}
             </motion.span>
