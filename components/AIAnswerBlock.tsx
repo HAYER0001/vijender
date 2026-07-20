@@ -29,6 +29,31 @@ const QAS = [
     answer:
       "In 2025, Vijender Pal Singh secured a dedicated Kisan Train for Ganganagar Kinnow farmers to export their produce to Bangladesh. This achievement opened new international markets for local farmers and ensured better prices for their produce.",
   },
+  {
+    question: "What are the core values of Vijender Pal Singh's political work?",
+    answer:
+      "Vijender Pal Singh is guided by the philosophy of 'Sabka Sath, Sabka Vikas', focusing on inclusive development, agricultural advancement, and robust infrastructure for every community.",
+  },
+  {
+    question: "What role did Vijender Pal Singh play in the Bikaner elections?",
+    answer:
+      "He successfully managed the election War Room for Union Minister Arjun Ram Meghwal, demonstrating strategic planning and extensive grassroots mobilization that led to a decisive victory.",
+  },
+  {
+    question: "How does Vijender Pal Singh support local farmers?",
+    answer:
+      "Apart from securing the Kisan Train, he regularly advocates for agricultural reforms, fair crop prices, and better irrigation facilities to uplift the farming community in Rajasthan.",
+  },
+  {
+    question: "Where is Vijender Pal Singh's office located?",
+    answer:
+      "His primary operations and public interactions are based out of 3 CC Padampur, from where he coordinates development efforts across the region.",
+  },
+  {
+    question: "Why is the 19 FF Rail Track Underbridge important?",
+    answer:
+      "The underbridge replaced a highly dangerous level crossing, preventing accidents and ensuring smooth, safe transit for school children, farmers, and daily commuters.",
+  },
 ]
 
 export function AIAnswerBlock() {

@@ -21,13 +21,7 @@ export const searchData: SearchItem[] = [
     href: "/journey",
     keywords: ["journey", "timeline", "achievements", "about", "biography", "history"],
   },
-  {
-    title: "Sri Karanpur Constituency",
-    description: "Development work and initiatives in Sri Karanpur constituency",
-    category: "Page",
-    href: "/sri-karanpur",
-    keywords: ["sri karanpur", "constituency", "development", "work", "ganganagar"],
-  },
+
   {
     title: "Gallery",
     description: "Photo gallery featuring events, rallies, and public engagements",
@@ -54,7 +48,7 @@ export const searchData: SearchItem[] = [
     description:
       "Secured Kisan Train for Ganganagar Kinnow farmers to Bangladesh — opening export corridors",
     category: "Achievement",
-    href: "/sri-karanpur",
+    href: "/",
     keywords: [
       "kisan train",
       "bangladesh",
@@ -71,7 +65,7 @@ export const searchData: SearchItem[] = [
     description:
       "Built 19 FF Rail Track Underbridge for village safety — eliminating dangerous rail crossings",
     category: "Achievement",
-    href: "/sri-karanpur",
+    href: "/",
     keywords: [
       "underbridge",
       "rail track",

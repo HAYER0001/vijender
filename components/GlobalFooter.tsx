@@ -8,7 +8,6 @@ import { Phone, Mail, MapPin, ArrowUp } from "lucide-react"
 const SITEMAP = [
   { label: "Home", href: "/" },
   { label: "About Me", href: "/journey" },
-  { label: "Sri Karanpur", href: "/sri-karanpur" },
   { label: "Gallery", href: "/gallery" },
   { label: "Media", href: "/media" },
   { label: "Connect", href: "/connect" },
