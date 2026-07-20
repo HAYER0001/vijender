@@ -14,11 +14,24 @@ const CLIPPINGS = [
 export function NewsTicker() {
   return (
     <div className="relative w-full h-[500px] lg:h-[700px] overflow-hidden rounded-3xl group">
+      <style>{`
+        @keyframes verticalScroll {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-50%); }
+        }
+        .scrolling-wrapper {
+          animation: verticalScroll 25s linear infinite;
+        }
+        .group:hover .scrolling-wrapper {
+          animation-play-state: paused;
+        }
+      `}</style>
+      
       {/* Top and Bottom faded edges for seamless scroll illusion */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#FDFBF7] to-transparent z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FDFBF7] to-transparent z-10 pointer-events-none" />
       
-      <div className="flex flex-col gap-8 pt-8 animate-marquee-vertical group-hover:[animation-play-state:paused]">
+      <div className="flex flex-col gap-8 pt-8 scrolling-wrapper">
         {/* Double array to create infinite scroll */}
         {[...CLIPPINGS, ...CLIPPINGS].map((src, idx) => (
           <a
