@@ -1,5 +1,6 @@
 import { HeroCanvas } from "@/components/HeroCanvas"
 import { LiveSocialFeed } from "@/components/LiveSocialFeed"
+import { AIAnswerBlock } from "@/components/AIAnswerBlock"
 import { NewsTicker } from "@/components/NewsTicker"
 import Image from "next/image"
 
@@ -45,45 +46,7 @@ export default function Home() {
 
       <LiveSocialFeed />
 
-      <section className="py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold text-green">Glimpses of Grassroots Work</h2>
-          </div>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-            <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-lg">
-              <Image 
-                src="/rally-crowd.jpg" 
-                alt="Rally crowd" 
-                width={800} height={1000} 
-                className="w-full h-auto object-cover"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDw0NDQ8NDw0NDw0NDQ0NDQ0NDQ0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFQ0PFSsdFR0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBBgMBIgACEQEDEQH..."
-              />
-            </div>
-            <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-lg">
-              <Image 
-                src="/kisan-train.jpg" 
-                alt="Kisan Train" 
-                width={800} height={600} 
-                className="w-full h-auto object-cover"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDw0NDQ8NDw0NDw0NDQ0NDQ0NDQ0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFQ0PFSsdFR0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBBgMBIgACEQEDEQH..."
-              />
-            </div>
-            <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-lg">
-              <Image 
-                src="/underbridge.jpg" 
-                alt="Underbridge" 
-                width={800} height={800} 
-                className="w-full h-auto object-cover"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDw0NDQ8NDw0NDw0NDQ0NDQ0NDQ0NFREWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0NFQ0PFSsdFR0rKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBBgMBIgACEQEDEQH..."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <AIAnswerBlock />
     </>
   )
 }
