@@ -10,47 +10,34 @@ import {
   Send,
   User,
   MapPin,
-  Tag,
   FileText,
+  Upload,
+  Paperclip
 } from "lucide-react"
 import { Magnetic } from "./Magnetic"
 
-const AREAS = [
-  "Padampur", "Sri Karanpur City", "Ganganagar", "Anupgarh",
-  "Raisinghnagar", "Suratgarh", "Vijainagar", "Gharsana",
-  "Kesrisinghpur", "Sadulshahar", "Other",
-]
-
-const CATEGORIES = [
-  { value: "development", label: "Development Project" },
-  { value: "grievance", label: "Grievance / Complaint" },
-  { value: "greeting", label: "Personal Greeting" },
-  { value: "meeting", label: "Meeting Request" },
-]
-
-const stepIcons = [User, MapPin, Tag, FileText]
+const stepIcons = [User, MapPin, FileText]
 
 const stepLabels = [
-  "Your Name",
-  "Your Area",
-  "Query Category",
+  "Personal Info",
+  "Gram Panchayat",
   "Your Message",
 ]
 
 interface FormData {
   name: string
-  area: string
-  category: string
+  villageCity: string
+  gramPanchayat: string
   message: string
+  documentName: string
 }
 
-const INITIAL: FormData = { name: "", area: "", category: "", message: "" }
+const INITIAL: FormData = { name: "", villageCity: "", gramPanchayat: "", message: "", documentName: "" }
 
 function validateStep(step: number, data: FormData): boolean {
-  if (step === 0) return data.name.trim().length >= 2
-  if (step === 1) return data.area.length > 0
-  if (step === 2) return data.category.length > 0
-  if (step === 3) return data.message.trim().length >= 10
+  if (step === 0) return data.name.trim().length >= 2 && data.villageCity.trim().length >= 2
+  if (step === 1) return data.gramPanchayat.trim().length >= 2
+  if (step === 2) return data.message.trim().length >= 10
   return false
 }
 
@@ -59,7 +46,12 @@ export function ConversationalForm() {
   const [data, setData] = useState<FormData>(INITIAL)
   const [direction, setDirection] = useState(1)
   const [submitted, setSubmitted] = useState(false)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  
+  // Create multiple refs for focus management
+  const nameInputRef = useRef<HTMLInputElement>(null)
+  const villageInputRef = useRef<HTMLInputElement>(null)
+  const panchayatInputRef = useRef<HTMLInputElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   const update = useCallback(<K extends keyof FormData>(
@@ -68,11 +60,17 @@ export function ConversationalForm() {
     setData((prev) => ({ ...prev, [key]: value }))
   }, [])
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      update("documentName", e.target.files[0].name)
+    }
+  }
+
   const canProceed = validateStep(step, data)
 
   const goNext = useCallback(() => {
     if (!canProceed) return
-    if (step < 3) {
+    if (step < 2) {
       setDirection(1)
       setStep((s) => s + 1)
     }
@@ -86,9 +84,10 @@ export function ConversationalForm() {
   }, [step])
 
   const handleSubmit = useCallback(() => {
-    if (!validateStep(3, data)) return
+    if (!validateStep(2, data)) return
     setSubmitted(true)
-    const text = `Name: ${data.name}%0AArea: ${data.area}%0ACategory: ${data.category}%0AMessage: ${data.message}`
+    const docNote = data.documentName ? "%0A*(Has document to attach)*" : ""
+    const text = `Name: ${data.name}%0AVillage/City: ${data.villageCity}%0AGram Panchayat / Municipal Area: ${data.gramPanchayat}%0AMessage: ${data.message}${docNote}`
     const url = `https://wa.me/919414089131?text=${text}`
     window.open(url, "_blank")
   }, [data])
@@ -126,13 +125,19 @@ export function ConversationalForm() {
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-green mb-3">
               Redirecting to WhatsApp
             </h3>
-            <p className="text-fg/70 text-base mb-8">
+            <p className="text-fg/70 text-base mb-2">
               Your message has been compiled. WhatsApp will open with a
               pre-filled message to Vijender Pal Singh.
             </p>
+            {data.documentName && (
+               <p className="text-saffron font-medium mb-8 bg-saffron/5 p-3 rounded-xl inline-block">
+                 Important: Don't forget to attach your document "{data.documentName}" in the WhatsApp chat!
+               </p>
+            )}
+            <br />
             <button
               onClick={resetForm}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-saffron text-white font-semibold text-sm hover:bg-saffron-dark transition-colors shadow-lg shadow-saffron/20"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-saffron text-white font-semibold text-sm hover:bg-saffron-dark transition-colors shadow-lg shadow-saffron/20 mt-4"
             >
               <Send className="w-4 h-4" />
               Send Another Message
@@ -186,7 +191,7 @@ export function ConversationalForm() {
                 ))}
               </div>
               <span className="font-display text-xs font-semibold text-fg/40 tracking-wider">
-                {step + 1} / 4
+                {step + 1} / 3
               </span>
             </div>
 
@@ -203,67 +208,58 @@ export function ConversationalForm() {
                   className="w-full"
                 >
                   <p className="font-display text-lg sm:text-xl font-semibold text-green mb-6">
-                    {step === 0 && "What is your name?"}
-                    {step === 1 && "Which area of Sri Karanpur are you from?"}
-                    {step === 2 && "Select the category of your query:"}
-                    {step === 3 && "Write down your message details..."}
+                    {step === 0 && "What is your name and location?"}
+                    {step === 1 && "Which Municipal Area / Gram Panchayat?"}
+                    {step === 2 && "Write down your message details..."}
                   </p>
 
                   {step === 0 && (
+                    <div className="space-y-4">
+                      <div className="relative">
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-fg/30" />
+                        <input
+                          ref={nameInputRef}
+                          type="text"
+                          value={data.name}
+                          onChange={(e) => update("name", e.target.value)}
+                          onKeyDown={(e) => e.key === "Enter" && data.name.trim().length >= 2 && villageInputRef.current?.focus()}
+                          placeholder="Your Name (e.g. Ramesh Kumar)"
+                          className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all"
+                          autoFocus
+                        />
+                      </div>
+                      <div className="relative">
+                        <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-fg/30" />
+                        <input
+                          ref={villageInputRef}
+                          type="text"
+                          value={data.villageCity}
+                          onChange={(e) => update("villageCity", e.target.value)}
+                          onKeyDown={(e) => e.key === "Enter" && goNext()}
+                          placeholder="Your Village / City"
+                          className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {step === 1 && (
                     <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-fg/30" />
+                      <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-fg/30" />
                       <input
-                        ref={inputRef as React.Ref<HTMLInputElement>}
+                        ref={panchayatInputRef}
                         type="text"
-                        value={data.name}
-                        onChange={(e) => update("name", e.target.value)}
+                        value={data.gramPanchayat}
+                        onChange={(e) => update("gramPanchayat", e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && goNext()}
-                        placeholder="e.g. Ramesh Kumar"
+                        placeholder="Municipal Area / Gram Panchayat"
                         className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all"
                         autoFocus
                       />
                     </div>
                   )}
 
-                  {step === 1 && (
-                    <div className="flex flex-wrap gap-2">
-                      {AREAS.map((area) => (
-                        <button
-                          key={area}
-                          onClick={() => update("area", area)}
-                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                            data.area === area
-                              ? "bg-saffron text-white shadow-md shadow-saffron/20"
-                              : "bg-cream/60 text-fg/70 hover:bg-saffron/10 hover:text-saffron border border-green/5"
-                          }`}
-                        >
-                          {area}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-
                   {step === 2 && (
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      {CATEGORIES.map((cat) => (
-                        <button
-                          key={cat.value}
-                          onClick={() => update("category", cat.value)}
-                          className={`p-4 rounded-xl text-left transition-all border ${
-                            data.category === cat.value
-                              ? "bg-saffron/5 border-saffron/30 text-green shadow-sm"
-                              : "bg-white border-green/5 text-fg/70 hover:border-saffron/20 hover:bg-saffron/[0.02]"
-                          }`}
-                        >
-                          <span className="font-display font-semibold text-sm">
-                            {cat.label}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  )}
-
-                  {step === 3 && (
                     <div className="relative">
                       <textarea
                         ref={textareaRef}
@@ -271,17 +267,42 @@ export function ConversationalForm() {
                         onChange={(e) => update("message", e.target.value)}
                         placeholder="Describe your query, suggestion, or grievance in detail..."
                         rows={4}
-                        className="w-full p-4 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all resize-none"
+                        className="w-full p-4 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all resize-none mb-3"
                         autoFocus
                       />
-                      <p className="mt-2 text-xs text-fg/40 text-right">
-                        {data.message.length} char{data.message.length !== 1 ? "s" : ""}
-                        {data.message.trim().length > 0 && data.message.trim().length < 10 && (
-                          <span className="text-saffron ml-1">
-                            (min 10 chars)
-                          </span>
-                        )}
-                      </p>
+                      
+                      <div className="flex items-center justify-between mb-2">
+                        <button 
+                          onClick={() => fileInputRef.current?.click()}
+                          className="flex items-center gap-2 text-sm text-fg/60 hover:text-saffron transition-colors px-3 py-2 bg-saffron/5 rounded-lg border border-saffron/20"
+                        >
+                          <Paperclip className="w-4 h-4" />
+                          {data.documentName ? 'Change Document' : 'Attach Document'}
+                        </button>
+                        
+                        <input 
+                          type="file" 
+                          className="hidden" 
+                          ref={fileInputRef}
+                          onChange={handleFileChange}
+                        />
+
+                        <p className="text-xs text-fg/40 text-right">
+                          {data.message.length} char{data.message.length !== 1 ? "s" : ""}
+                          {data.message.trim().length > 0 && data.message.trim().length < 10 && (
+                            <span className="text-saffron ml-1">
+                              (min 10 chars)
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                      
+                      {data.documentName && (
+                        <div className="flex items-center justify-between bg-green/5 px-3 py-2 rounded-lg border border-green/10 text-xs text-green">
+                          <span className="truncate max-w-[200px] font-medium">{data.documentName}</span>
+                          <span className="text-fg/50">(Attach in WhatsApp later)</span>
+                        </div>
+                      )}
                     </div>
                   )}
                 </motion.div>
@@ -304,7 +325,7 @@ export function ConversationalForm() {
                 </button>
               </Magnetic>
 
-              {step < 3 ? (
+              {step < 2 ? (
                 <Magnetic>
                   <button
                     onClick={goNext}
@@ -349,7 +370,7 @@ export function ConversationalForm() {
         <span className="font-display text-xs text-fg/60 tracking-wider">
           {stepLabels[step]}
         </span>
-        {step < 3 ? (
+        {step < 2 ? (
           <Magnetic>
             <button
               onClick={goNext}
