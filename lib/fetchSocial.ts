@@ -22,7 +22,7 @@ const MOCK_POSTS: SocialPost[] = [
     avatarInitials: "VP",
     content:
       "Proud to have secured the Kisan Train for our hardworking Kinnow farmers from Ganganagar to Bangladesh. This will open new export markets and ensure better prices for our farmers. Sabka Sath, Sabka Vikas! 🚂🇮🇳",
-    imageUrl: "/images/social-post-1.jpg",
+    imageUrl: "/images/kisan-train-scene.jpg",
     timestamp: "2026-07-18T10:30:00Z",
     timestampLabel: "1 day ago",
     likes: 2847,
@@ -37,7 +37,7 @@ const MOCK_POSTS: SocialPost[] = [
     avatarInitials: "VP",
     content:
       "Inspection of the newly constructed 19 FF Rail Track Underbridge in Sri Karanpur. This bridge eliminates the risk of crossing active railway lines for hundreds of families. Development that reaches every doorstep.",
-    imageUrl: "/images/social-post-2.jpg",
+    imageUrl: "/images/underbridge-1.jpg",
     timestamp: "2026-07-15T14:00:00Z",
     timestampLabel: "4 days ago",
     likes: 4521,
@@ -52,7 +52,7 @@ const MOCK_POSTS: SocialPost[] = [
     avatarInitials: "VP",
     content:
       "Grateful to the party leadership for appointing me as State Co-Incharge of BJP Minority Morcha, Rajasthan. I will work tirelessly to strengthen our bonds across all communities and ensure every voice is heard.",
-    imageUrl: "/images/social-post-3.jpg",
+    imageUrl: "/images/morcha-event.jpg",
     timestamp: "2026-07-10T09:00:00Z",
     timestampLabel: "1 week ago",
     likes: 3102,
