@@ -42,7 +42,9 @@ export function PredictiveSearch() {
 
   useEffect(() => {
     const q = searchParams.get("q") || ""
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (q !== inputValue) setInputValue(q)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
   useEffect(() => {

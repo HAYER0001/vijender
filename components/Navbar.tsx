@@ -17,6 +17,7 @@ export function Navbar() {
 
   useEffect(() => {
     const mql = window.matchMedia("(prefers-reduced-motion: reduce)")
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReduced(mql.matches)
     const handler = (e: MediaQueryListEvent) => setReduced(e.matches)
     mql.addEventListener("change", handler)

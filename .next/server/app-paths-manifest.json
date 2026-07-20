@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/connect/page": "app/connect/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/gallery/page": "app/gallery/page.js",
+  "/journey/page": "app/journey/page.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/media/page": "app/media/page.js",
+  "/offline/page": "app/offline/page.js",
+  "/page": "app/page.js"
+}

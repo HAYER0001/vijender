@@ -82,7 +82,14 @@ export function GlobalFooter() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#FF9933] shrink-0 mt-0.5" />
-                <span>Sri Karanpur, Rajasthan</span>
+                <a 
+                  href="https://www.google.com/maps?client=firefox-b-d&hs=XGIq&sca_esv=d51e216af84ce14e&biw=1714&bih=861&output=search&q=doaba+3+cc+map&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832SMIiTl3t-JZ4hGJOxPbHYTU1b4eMHgVSc8-UQwsgjK0L88zb7NQVKaqOIid6xblVPsFCsonwP2ZqobUjAc1lKQupAGVpljI2sU0bm19deOpHreKNvP-HxL68mk85WOrfe8Adt8SoqPWqkg39aIKJVBAckLM9gPOtbaSCYH7Qo8Qx3x7kw&entry=mc&ved=1t:200715&ictx=111"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FF9933] transition-colors"
+                >
+                  Sri Karanpur, Rajasthan
+                </a>
               </li>
             </ul>
             
