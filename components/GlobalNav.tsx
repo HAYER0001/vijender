@@ -11,7 +11,7 @@ import { PredictiveSearch } from "./PredictiveSearch"
 
 const ROUTES = [
   { label: "Home", href: "/" },
-  { label: "My Journey", href: "/journey" },
+  { label: "About Me", href: "/journey" },
   { label: "Sri Karanpur", href: "/sri-karanpur" },
   { label: "Gallery", href: "/gallery" },
   { label: "Media", href: "/media" },

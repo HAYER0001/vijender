@@ -15,7 +15,7 @@ export const searchData: SearchItem[] = [
     keywords: ["home", "vijender", "pal", "singh", "bjp", "sri karanpur", "karyakarta", "leader"],
   },
   {
-    title: "My Journey",
+    title: "About Me",
     description: "The complete journey of Vijender Pal Singh — from college to BJP karyakarta",
     category: "Page",
     href: "/journey",

@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const links = [
-  { label: "My Journey", href: "#about" },
+  { label: "About Me", href: "#about" },
   { label: "Achievements", href: "#achievements" },
   { label: "Connect", href: "#connect" },
 ]
