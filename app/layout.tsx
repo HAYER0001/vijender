@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Khand, Mukta } from "next/font/google"
 import { SkeletonLoader } from "@/components/SkeletonLoader"
 import { CustomCursor } from "@/components/CustomCursor"
+import { ScrollProgress } from "@/components/ScrollProgress"
+import { PageTransition } from "@/components/PageTransition"
 import { GlobalNav } from "@/components/GlobalNav"
 import { GlobalFooter } from "@/components/GlobalFooter"
 import { StickyContact } from "@/components/sections/StickyContact"
@@ -104,15 +106,16 @@ export default function RootLayout({
       <body className="min-h-screen antialiased font-body">
         <ThemeProvider>
         <SkeletonLoader />
-        <CustomCursor />
         <ServiceWorkerRegister />
-        <GlobalNav />
-        <SchemaMarkup type="Person" />
         <SmoothScroll>
-          <AnimatePresenceWrapper>
-            <main className="pt-16 lg:pt-20">{children}</main>
-          </AnimatePresenceWrapper>
+          <CustomCursor />
+          <ScrollProgress />
+          <GlobalNav />
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <GlobalFooter />
+          <SchemaMarkup type="Person" />
         </SmoothScroll>
         <StickyContact />
         </ThemeProvider>
@@ -120,4 +123,3 @@ export default function RootLayout({
     </html>
   )
 }
-

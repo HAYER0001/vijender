@@ -35,30 +35,52 @@ export function AIAnswerBlock() {
   return (
     <section id="faq" className="py-28 sm:py-36 bg-[var(--page-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-display font-semibold text-saffron text-sm tracking-widest uppercase flex items-center justify-center gap-2">
-            <HelpCircle className="w-4 h-4" />
-            AI-Powered Knowledge
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-green">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-4 text-fg/70 text-base sm:text-lg">
-            Structured answers about Vijender Pal Singh&apos;s work and public
-            service record — optimized for AI search engines and quick reference.
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto space-y-4">
-          {QAS.map((qa, i) => (
-            <details
-              key={i}
-              className="group bg-white rounded-2xl border border-saffron/10 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, type: "spring" }}
+              className="font-display font-semibold text-saffron text-sm tracking-widest uppercase flex items-center justify-center gap-2"
             >
-              <summary
-                className="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none"
-                aria-label={qa.question}
+              <HelpCircle className="w-4 h-4" />
+              AI-Powered Knowledge
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-green"
+            >
+              Frequently Asked Questions
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-4 text-fg/70 text-base sm:text-lg"
+            >
+              Structured answers about Vijender Pal Singh&apos;s work and public
+              service record — optimized for AI search engines and quick reference.
+            </motion.p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {QAS.map((qa, i) => (
+              <motion.details
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group bg-white rounded-2xl border border-saffron/10 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
               >
+                <summary
+                  className="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none hover:bg-saffron/5 transition-colors"
+                  aria-label={qa.question}
+                >
                 <h3 className="font-display font-semibold text-base sm:text-lg text-green pr-4">
                   {qa.question}
                 </h3>
@@ -77,7 +99,7 @@ export function AIAnswerBlock() {
                   </p>
                 </div>
               </motion.div>
-            </details>
+            </motion.details>
           ))}
         </div>
       </div>

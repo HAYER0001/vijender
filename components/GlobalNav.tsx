@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X, Phone, ArrowRight } from "lucide-react"
 import { Magnetic } from "./Magnetic"
 import { ThemeToggle } from "./ThemeToggle"
 import { PredictiveSearch } from "./PredictiveSearch"
@@ -121,8 +121,10 @@ export function GlobalNav() {
                 <Suspense fallback={null}><PredictiveSearch /></Suspense>
                 <div className="flex items-center gap-2 pl-2 border-l border-[var(--page-border)]">
                   <ThemeToggle />
-                  <a
-                    href="https://wa.me/919414089131"
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href="https://wa.me/919414089131?text=Hello"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-magnetic
@@ -130,7 +132,7 @@ export function GlobalNav() {
                   >
                     <Phone className="w-3.5 h-3.5" />
                     Connect
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </div>
@@ -186,15 +188,18 @@ export function GlobalNav() {
                 </span>
                 <ThemeToggle />
               </div>
-              <a
-                href="https://wa.me/919414089131"
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href="https://wa.me/919414089131?text=Hello"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#FF9933] text-white font-semibold text-sm hover:bg-[#E67E22] transition-all font-[family-name:var(--font-mukta)]"
               >
                 <Phone className="w-4 h-4" />
                 Connect on WhatsApp
-              </a>
+                <ArrowRight className="w-4 h-4" />
+              </motion.a>
             </div>
           </div>
         </motion.div>

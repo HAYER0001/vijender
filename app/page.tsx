@@ -2,6 +2,7 @@ import { HeroCanvas } from "@/components/HeroCanvas"
 import { LiveSocialFeed } from "@/components/LiveSocialFeed"
 import { AIAnswerBlock } from "@/components/AIAnswerBlock"
 import { NewsTicker } from "@/components/NewsTicker"
+import { FadeUpReveal, KineticHeadline, ParallaxImage } from "@/components/MotionWrappers"
 import Image from "next/image"
 
 export const revalidate = 3600
@@ -15,31 +16,34 @@ export default function Home() {
           
           {/* 1. Left: Portrait */}
           <div className="relative w-full lg:w-[30%] max-w-md mx-auto shrink-0">
-            <Image
-              src="/hero-portrait.png"
-              alt="Vijender Pal Singh"
-              width={600}
-              height={800}
-              className="w-full h-auto object-contain rounded-[3rem] drop-shadow-[0_20px_20px_rgba(15,82,58,0.3)] hover:scale-105 transition-transform duration-700"
-              priority
-            />
+            <ParallaxImage className="rounded-[3rem] shadow-[0_30px_60px_rgba(15,82,58,0.4)] hover:shadow-[0_40px_80px_rgba(255,153,51,0.5)] transition-shadow duration-700">
+              <Image
+                src="/hero-portrait.png"
+                alt="Vijender Pal Singh"
+                width={600}
+                height={800}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </ParallaxImage>
           </div>
           
           {/* 2. Middle: Text content */}
-          <div className="flex-1 lg:w-[40%] space-y-6 text-center lg:text-left z-20">
-            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-green leading-[1.1] drop-shadow-sm">
-              वादे नहीं <br />
-              <span className="text-saffron">ईरादे</span>
+          <div className="flex-1 lg:w-[40%] space-y-8 text-center lg:text-left z-20">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-green drop-shadow-sm">
+              <KineticHeadline text="वादे नहीं" highlightText="ईरादे" />
             </h1>
-            <p className="text-lg md:text-xl text-fg/80 max-w-xl mx-auto lg:mx-0 font-body">
-              Vijender Pal Singh has been working for the people of Sri Karanpur since 1993. A dedicated BJP Karyakarta, driving infrastructure, social justice, and community welfare. Sabka Sath, Sabka Vikas.
-            </p>
+            <FadeUpReveal delay={0.3}>
+              <p className="text-lg md:text-xl text-fg/80 max-w-xl mx-auto lg:mx-0 font-body leading-relaxed">
+                Vijender Pal Singh has been working for the people of Sri Karanpur since 1993. A dedicated BJP Karyakarta, driving infrastructure, social justice, and community welfare. Sabka Sath, Sabka Vikas.
+              </p>
+            </FadeUpReveal>
           </div>
 
           {/* 3. Right: Scrolling Newspaper Cuttings */}
-          <div className="w-full lg:w-[30%] shrink-0">
+          <FadeUpReveal delay={0.6} className="w-full lg:w-[30%] shrink-0">
             <NewsTicker />
-          </div>
+          </FadeUpReveal>
 
         </div>
       </section>
