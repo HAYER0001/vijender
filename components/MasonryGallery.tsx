@@ -49,7 +49,7 @@ export function MasonryGallery({ images }: MasonryGalleryProps) {
                   
                   <div className="relative w-full h-auto">
                     <Image
-                      src={`/images/gallery/${img}`}
+                      src={img}
                       alt="Gallery Photo"
                       width={800}
                       height={800}
@@ -96,7 +96,7 @@ export function MasonryGallery({ images }: MasonryGalleryProps) {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={`/images/gallery/${selectedImage}`}
+                src={selectedImage}
                 alt="Selected Photo"
                 width={1600}
                 height={1200}

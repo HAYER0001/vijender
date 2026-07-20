@@ -7,16 +7,34 @@ export const metadata = {
   description: "A glimpse into the grassroots moments and events.",
 }
 
-// Statically fetch the images during build time or server request
-function getGalleryImages() {
-  const galleryDir = path.join(process.cwd(), "public/images/gallery")
+// Recursively fetch all images from the public directory
+function getAllImages(dirPath: string, arrayOfFiles: string[] = []) {
   try {
-    const files = fs.readdirSync(galleryDir)
-    return files.filter(f => f.endsWith(".jpg") || f.endsWith(".jpeg") || f.endsWith(".png"))
+    const files = fs.readdirSync(dirPath)
+    files.forEach((file) => {
+      const fullPath = path.join(dirPath, file)
+      if (fs.statSync(fullPath).isDirectory()) {
+        arrayOfFiles = getAllImages(fullPath, arrayOfFiles)
+      } else {
+        if (file.match(/\.(jpg|jpeg|png)$/i)) {
+          // Exclude logos and ui assets
+          if (!file.includes("hero-portrait") && !file.includes("bjp-logo") && !file.includes("bjp-icon") && !file.includes("offline")) {
+            // Convert absolute path to public URL path
+            const relativePath = fullPath.split("public")[1]
+            if (relativePath) arrayOfFiles.push(relativePath.replace(/\\/g, "/"))
+          }
+        }
+      }
+    })
   } catch (error) {
-    console.error("Failed to read gallery directory:", error)
-    return []
+    console.error("Failed to read directory:", error)
   }
+  return arrayOfFiles
+}
+
+function getGalleryImages() {
+  const publicDir = path.join(process.cwd(), "public")
+  return getAllImages(publicDir)
 }
 
 export default function GalleryPage() {

@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const MOCK_UPDATES = [
-  { id: 1, title: "Grateful to the BJP leadership for appointing me as State Co-Incharge of BJP Minority Morcha...", time: "Latest on Facebook", type: "Achievement", url: "https://www.facebook.com/vijenderpals3cc" },
-  { id: 2, title: "The newly constructed 19 FF Rail Track Underbridge in Sri Karanpur is now fully operational...", time: "Latest on Instagram", type: "Event", url: "https://www.instagram.com/vijenderpals3cc" },
-  { id: 3, title: "Historic Kisan Train service from Ganganagar to Bangladesh now operational...", time: "Latest on X", type: "Update", url: "https://www.x.com/vijenderpals3cc" }
+  { id: 1, title: "Grateful to the BJP leadership for appointing me as State Co-Incharge of BJP Minority Morcha...", time: "Latest on Facebook", type: "Achievement", url: "https://www.facebook.com/vijenderpals3cc", image: "/images/social-post-3.jpg" },
+  { id: 2, title: "The newly constructed 19 FF Rail Track Underbridge in Sri Karanpur is now fully operational...", time: "Latest on Instagram", type: "Event", url: "https://www.instagram.com/vijenderpals3cc", image: "/images/social-post-2.jpg" },
+  { id: 3, title: "Historic Kisan Train service from Ganganagar to Bangladesh now operational...", time: "Latest on X", type: "Update", url: "https://www.x.com/vijenderpals3cc", image: "/images/social-post-1.jpg" }
 ]
 
 export function LiveUpdates() {
@@ -36,8 +36,11 @@ export function LiveUpdates() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="absolute inset-0 flex items-center"
               >
-                <a href={MOCK_UPDATES[currentIndex].url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center px-6 group hover:bg-white/5 transition-colors rounded-xl">
-                  <span className="text-saffron text-sm font-semibold mr-3 whitespace-nowrap">
+                <a href={MOCK_UPDATES[currentIndex].url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center px-4 group hover:bg-white/5 transition-colors rounded-xl gap-4">
+                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-white/20">
+                    <img src={MOCK_UPDATES[currentIndex].image} alt="" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="text-saffron text-sm font-semibold whitespace-nowrap">
                     {MOCK_UPDATES[currentIndex].time}
                   </span>
                   <span className="text-white font-medium truncate group-hover:text-saffron transition-colors">
