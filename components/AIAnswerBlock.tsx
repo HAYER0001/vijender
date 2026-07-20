@@ -22,7 +22,7 @@ const QAS = [
   {
     question: "How can citizens contact Vijender Pal Singh?",
     answer:
-      "Citizens can connect with Vijender Pal Singh directly via WhatsApp at 91XXXXXXXXXX. A multi-step conversational form is available on his website that compiles a structured message — including name, area, category, and details — and opens WhatsApp with the pre-filled message for direct communication.",
+      "Citizens can connect with Vijender Pal Singh directly via WhatsApp at 94140 89131. A multi-step conversational form is available on his website that compiles a structured message — including name, area, category, and details — and opens WhatsApp with the pre-filled message for direct communication.",
   },
   {
     question: "What is the Kisan Train achievement?",

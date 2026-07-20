@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const MOCK_UPDATES = [
-  { id: 1, title: "Kisan Train Flagged Off", time: "2 hours ago", type: "Achievement" },
-  { id: 2, title: "Addressed rally at Sri Karanpur", time: "5 hours ago", type: "Event" },
-  { id: 3, title: "Meeting with ZRUCC officials", time: "1 day ago", type: "Meeting" }
+  { id: 1, title: "Grateful to the BJP leadership for appointing me as State Co-Incharge of BJP Minority Morcha...", time: "Latest on Facebook", type: "Achievement", url: "https://www.facebook.com/vijenderpals3cc" },
+  { id: 2, title: "The newly constructed 19 FF Rail Track Underbridge in Sri Karanpur is now fully operational...", time: "Latest on Instagram", type: "Event", url: "https://www.instagram.com/vijenderpals3cc" },
+  { id: 3, title: "Historic Kisan Train service from Ganganagar to Bangladesh now operational...", time: "Latest on X", type: "Update", url: "https://www.x.com/vijenderpals3cc" }
 ]
 
 export function LiveUpdates() {
@@ -34,14 +34,16 @@ export function LiveUpdates() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute inset-0 flex items-center px-6"
+                className="absolute inset-0 flex items-center"
               >
-                <span className="text-saffron text-sm font-semibold mr-3">
-                  {MOCK_UPDATES[currentIndex].time}
-                </span>
-                <span className="text-white font-medium">
-                  {MOCK_UPDATES[currentIndex].title}
-                </span>
+                <a href={MOCK_UPDATES[currentIndex].url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center px-6 group hover:bg-white/5 transition-colors rounded-xl">
+                  <span className="text-saffron text-sm font-semibold mr-3 whitespace-nowrap">
+                    {MOCK_UPDATES[currentIndex].time}
+                  </span>
+                  <span className="text-white font-medium truncate group-hover:text-saffron transition-colors">
+                    {MOCK_UPDATES[currentIndex].title}
+                  </span>
+                </a>
               </motion.div>
             </AnimatePresence>
           </div>

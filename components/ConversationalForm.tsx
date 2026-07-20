@@ -89,7 +89,7 @@ export function ConversationalForm() {
     if (!validateStep(3, data)) return
     setSubmitted(true)
     const text = `Name: ${data.name}%0AArea: ${data.area}%0ACategory: ${data.category}%0AMessage: ${data.message}`
-    const url = `https://wa.me/91XXXXXXXXXX?text=${text}`
+    const url = `https://wa.me/919414089131?text=${text}`
     window.open(url, "_blank")
   }, [data])
 

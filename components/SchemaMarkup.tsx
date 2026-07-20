@@ -20,7 +20,8 @@ const personSchema = {
     addressRegion: "Rajasthan",
     addressCountry: "IN",
   },
-  sameAs: ["https://wa.me/91XXXXXXXXXX"],
+  url: "https://vijenderpalsingh.com",
+  sameAs: ["https://wa.me/919414089131"],
   knowsAbout: ["Politics", "Social Justice", "Infrastructure Development", "Community Service"],
 }
 

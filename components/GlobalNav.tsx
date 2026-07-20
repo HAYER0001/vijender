@@ -122,7 +122,7 @@ export function GlobalNav() {
                 <div className="flex items-center gap-2 pl-2 border-l border-[var(--page-border)]">
                   <ThemeToggle />
                   <a
-                    href="https://wa.me/91XXXXXXXXXX"
+                    href="https://wa.me/919414089131"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-magnetic
@@ -187,7 +187,7 @@ export function GlobalNav() {
                 <ThemeToggle />
               </div>
               <a
-                href="https://wa.me/91XXXXXXXXXX"
+                href="https://wa.me/919414089131"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#FF9933] text-white font-semibold text-sm hover:bg-[#E67E22] transition-all font-[family-name:var(--font-mukta)]"
