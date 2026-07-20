@@ -9,12 +9,7 @@ const platformLabels: Record<SocialPost["platform"], string> = {
   facebook: "Facebook",
 }
 
-const postImages: Record<string, string> = {
-  "vps-kisan-train": "/images/social-post-1.jpg",
-  "vps-underbridge": "/images/social-post-2.jpg",
-  "vps-minority-morcha": "/images/social-post-3.jpg",
-  "vps-fallback": "/images/social-post-4.jpg",
-}
+
 
 function formatNumber(n: number): string {
   if (n >= 1000) return `${(n / 1000).toFixed(1)}K`
@@ -22,7 +17,7 @@ function formatNumber(n: number): string {
 }
 
 function SocialCard({ post }: { post: SocialPost }) {
-  const imgSrc = postImages[post.id]
+  const imgSrc = post.imageUrl
 
   return (
     <div className="bg-[var(--page-surface)] border border-saffron/20 rounded-2xl shadow-lg shadow-saffron/5 overflow-hidden">
@@ -94,24 +89,27 @@ function SocialCard({ post }: { post: SocialPost }) {
 }
 
 export async function LiveSocialFeed() {
-  let post: SocialPost
+  let posts: SocialPost[] = []
   try {
-    post = await fetchSocial()
+    posts = await fetchSocial()
   } catch {
-    post = {
-      id: "vps-fallback",
-      platform: "twitter",
-      authorName: "Vijender Pal Singh",
-      authorHandle: "@VijenderBJP",
-      avatarInitials: "VP",
-      content:
-        "Honoured to be appointed as ZRUCC Member for North Western Railways. I will continue to raise the voice of Sri Karanpur's citizens on every platform — ensuring our railway infrastructure serves the people first.",
-      timestamp: "2026-07-08T11:00:00Z",
-      timestampLabel: "Last week",
-      likes: 2100,
-      shares: 430,
-      url: "https://x.com/VijenderBJP/status/2",
-    }
+    posts = [
+      {
+        id: "vps-fallback",
+        platform: "twitter",
+        authorName: "Vijender Pal Singh",
+        authorHandle: "@vijenderpals3cc",
+        avatarInitials: "VP",
+        content:
+          "Honoured to be appointed as ZRUCC Member for North Western Railways. I will continue to raise the voice of Sri Karanpur's citizens on every platform — ensuring our railway infrastructure serves the people first.",
+        imageUrl: "/images/social-post-4.jpg",
+        timestamp: "2026-07-08T11:00:00Z",
+        timestampLabel: "Last week",
+        likes: 2100,
+        shares: 430,
+        url: "https://www.x.com/vijenderpals3cc",
+      }
+    ]
   }
 
   return (
@@ -130,8 +128,10 @@ export async function LiveSocialFeed() {
             </p>
           </div>
 
-          <div className="max-w-lg mx-auto">
-            <SocialCard post={post} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map(post => (
+              <SocialCard key={post.id} post={post} />
+            ))}
           </div>
         </FeedAnimator>
       </div>

@@ -18,43 +18,46 @@ const MOCK_POSTS: SocialPost[] = [
     id: "vps-001",
     platform: "twitter",
     authorName: "Vijender Pal Singh",
-    authorHandle: "@VijenderBJP",
+    authorHandle: "@vijenderpals3cc",
     avatarInitials: "VP",
     content:
       "Proud to have secured the Kisan Train for our hardworking Kinnow farmers from Ganganagar to Bangladesh. This will open new export markets and ensure better prices for our farmers. Sabka Sath, Sabka Vikas! 🚂🇮🇳",
+    imageUrl: "/images/social-post-1.jpg",
     timestamp: "2026-07-18T10:30:00Z",
     timestampLabel: "1 day ago",
     likes: 2847,
     shares: 892,
-    url: "https://x.com/VijenderBJP/status/1",
+    url: "https://www.x.com/vijenderpals3cc",
   },
   {
     id: "vps-002",
     platform: "instagram",
     authorName: "Vijender Pal Singh",
-    authorHandle: "@vijenderbjp",
+    authorHandle: "@vijenderpals3cc",
     avatarInitials: "VP",
     content:
       "Inspection of the newly constructed 19 FF Rail Track Underbridge in Sri Karanpur. This bridge eliminates the risk of crossing active railway lines for hundreds of families. Development that reaches every doorstep.",
+    imageUrl: "/images/social-post-2.jpg",
     timestamp: "2026-07-15T14:00:00Z",
     timestampLabel: "4 days ago",
     likes: 4521,
     shares: 1205,
-    url: "https://instagram.com/vijenderbjp",
+    url: "https://www.instagram.com/vijenderpals3cc",
   },
   {
     id: "vps-003",
     platform: "facebook",
     authorName: "Vijender Pal Singh",
-    authorHandle: "VijenderPalBJP",
+    authorHandle: "@vijenderpals3cc",
     avatarInitials: "VP",
     content:
       "Grateful to the party leadership for appointing me as State Co-Incharge of BJP Minority Morcha, Rajasthan. I will work tirelessly to strengthen our bonds across all communities and ensure every voice is heard.",
+    imageUrl: "/images/social-post-3.jpg",
     timestamp: "2026-07-10T09:00:00Z",
     timestampLabel: "1 week ago",
     likes: 3102,
     shares: 645,
-    url: "https://facebook.com/VijenderPalBJP",
+    url: "https://www.facebook.com/vijenderpals3cc",
   },
 ]
 
@@ -79,7 +82,7 @@ export function setSocialApiUrl(url: string) {
   apiUrl = url
 }
 
-export async function fetchSocial(): Promise<SocialPost> {
+export async function fetchSocial(): Promise<SocialPost[]> {
   if (apiUrl) {
     try {
       const res = await fetch(apiUrl, {
@@ -87,15 +90,15 @@ export async function fetchSocial(): Promise<SocialPost> {
       })
       if (!res.ok) throw new Error(`API responded with ${res.status}`)
       const data: SocialPost[] = await res.json()
-      return data[0] ?? MOCK_POSTS[0]
+      return data.length > 0 ? data : MOCK_POSTS
     } catch {
-      return FALLBACK_POST
+      return [FALLBACK_POST]
     }
   }
 
   try {
-    return MOCK_POSTS[Math.floor(Math.random() * MOCK_POSTS.length)]
+    return MOCK_POSTS
   } catch {
-    return FALLBACK_POST
+    return [FALLBACK_POST]
   }
 }

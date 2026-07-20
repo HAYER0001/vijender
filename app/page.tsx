@@ -1,5 +1,5 @@
 import { HeroCanvas } from "@/components/HeroCanvas"
-import { LiveUpdates } from "@/components/LiveUpdates"
+import { LiveSocialFeed } from "@/components/LiveSocialFeed"
 import Image from "next/image"
 
 export const revalidate = 3600
@@ -32,7 +32,7 @@ export default function Home() {
         </div>
       </section>
 
-      <LiveUpdates />
+      <LiveSocialFeed />
 
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
