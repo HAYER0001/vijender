@@ -78,19 +78,6 @@ export function VectorAccentsFg() {
 
   return (
     <motion.div style={{ y }} className="absolute inset-0 pointer-events-none z-40 overflow-hidden">
-      {/* Hand-drawn underline crossing over the portrait */}
-      <motion.svg
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.9 }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 1 }}
-        className="absolute top-[60%] left-[10%] w-[35%] text-saffron drop-shadow-md stroke-current"
-        viewBox="0 0 300 50"
-        fill="none"
-        strokeWidth="8"
-        strokeLinecap="round"
-      >
-        <path d="M0,25 C100,5 200,45 300,25" />
-      </motion.svg>
 
       {/* Floating stars over the image */}
       <motion.svg
