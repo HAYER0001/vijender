@@ -12,9 +12,9 @@ export function MediaSection() {
         </div>
         
         {videos.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {videos.map((src, idx) => (
-              <div key={idx} className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 bg-black">
+              <div key={idx} className="relative w-full max-w-2xl aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 bg-black">
                 <video 
                   src={src} 
                   controls 
