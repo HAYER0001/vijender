@@ -1,5 +1,4 @@
-import fs from "fs"
-import path from "path"
+import { getImagesFromDirectory } from "@/lib/mediaManager"
 import { MasonryGallery } from "@/components/MasonryGallery"
 
 export const metadata = {
@@ -7,38 +6,8 @@ export const metadata = {
   description: "A glimpse into the grassroots moments and events.",
 }
 
-// Recursively fetch all images from the public directory
-function getAllImages(dirPath: string, arrayOfFiles: string[] = []) {
-  try {
-    const files = fs.readdirSync(dirPath)
-    files.forEach((file) => {
-      const fullPath = path.join(dirPath, file)
-      if (fs.statSync(fullPath).isDirectory()) {
-        arrayOfFiles = getAllImages(fullPath, arrayOfFiles)
-      } else {
-        if (file.match(/\.(jpg|jpeg|png)$/i)) {
-          // Exclude logos and ui assets
-          if (!file.includes("hero-portrait") && !file.includes("bjp-logo") && !file.includes("bjp-icon") && !file.includes("offline")) {
-            // Convert absolute path to public URL path
-            const relativePath = fullPath.split("public")[1]
-            if (relativePath) arrayOfFiles.push(relativePath.replace(/\\/g, "/"))
-          }
-        }
-      }
-    })
-  } catch (error) {
-    console.error("Failed to read directory:", error)
-  }
-  return arrayOfFiles
-}
-
-function getGalleryImages() {
-  const publicDir = path.join(process.cwd(), "public")
-  return getAllImages(publicDir)
-}
-
 export default function GalleryPage() {
-  const images = getGalleryImages()
+  const images = getImagesFromDirectory("gallery")
 
   return (
     <div className="bg-[var(--page-bg)] min-h-screen pt-32 pb-20">

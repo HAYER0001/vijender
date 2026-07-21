@@ -1,4 +1,7 @@
 import { SchemaMarkup } from "@/components/SchemaMarkup"
+import { MediaSection } from "@/components/sections/MediaSection"
+import { getImagesFromDirectory } from "@/lib/mediaManager"
+import Image from "next/image"
 
 export const metadata = {
   title: "Media & Press",
@@ -6,6 +9,8 @@ export const metadata = {
 }
 
 export default function MediaPage() {
+  const mediaPhotos = getImagesFromDirectory("media/images")
+
   return (
     <div className="bg-[var(--page-bg)] min-h-screen pt-32 pb-20">
       <SchemaMarkup type="Person" />
@@ -84,6 +89,31 @@ export default function MediaPage() {
               </ul>
             </article>
           </section>
+          
+          <MediaSection />
+
+          {mediaPhotos.length > 0 && (
+            <section className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-black/5 mt-16">
+              <h2 className="font-display text-3xl font-bold text-green mb-6 border-b border-green/10 pb-4">
+                Press Photos
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {mediaPhotos.map((src, idx) => (
+                  <div key={idx} className="relative aspect-square rounded-xl overflow-hidden group shadow-md border-2 border-white">
+                    <div className="absolute inset-0 bg-saffron/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                    <Image 
+                      src={src} 
+                      alt={`Press Photo ${idx + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      unoptimized
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
         </main>
       </div>
     </div>
