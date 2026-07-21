@@ -83,22 +83,22 @@ export function setSocialApiUrl(url: string) {
 }
 
 export async function fetchSocial(): Promise<SocialPost[]> {
-  if (apiUrl) {
-    try {
-      const res = await fetch(apiUrl, {
-        next: { revalidate: 3600 },
-      })
-      if (!res.ok) throw new Error(`API responded with ${res.status}`)
-      const data: SocialPost[] = await res.json()
-      return data.length > 0 ? data : MOCK_POSTS
-    } catch {
-      return [FALLBACK_POST]
-    }
-  }
+  // If the user configures the API URL (e.g. process.env.NEXT_PUBLIC_SITE_URL + '/api/social')
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
+  const targetApiUrl = apiUrl || `${baseUrl}/api/social`
 
   try {
+    const res = await fetch(targetApiUrl, {
+      next: { revalidate: 3600 },
+    })
+    if (!res.ok) {
+      console.warn(`Social API responded with ${res.status}. Falling back to mock data.`)
+      return MOCK_POSTS
+    }
+    const data: SocialPost[] = await res.json()
+    return data.length > 0 ? data : MOCK_POSTS
+  } catch (error) {
+    console.warn("Failed to fetch from Social API. Falling back to mock data.", error)
     return MOCK_POSTS
-  } catch {
-    return [FALLBACK_POST]
   }
 }
