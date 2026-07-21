@@ -5,11 +5,17 @@ import { NewsTicker } from "@/components/NewsTicker"
 import { FadeUpReveal, KineticHeadline, ParallaxImage } from "@/components/MotionWrappers"
 import { VectorAccentsBg, VectorAccentsFg } from "@/components/VectorAccents"
 import { Articles } from "@/components/sections/Articles"
+import { Gallery } from "@/components/sections/Gallery"
+import { MediaSection } from "@/components/sections/MediaSection"
+import { getImagesFromDirectory } from "@/lib/mediaManager"
 import Image from "next/image"
 
 export const revalidate = 3600
 
 export default function Home() {
+  const scroll1 = getImagesFromDirectory("hero-scroll/scroll-1")
+  const scroll2 = getImagesFromDirectory("hero-scroll/scroll-2")
+
   return (
     <>
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[var(--page-bg)]">
@@ -45,7 +51,7 @@ export default function Home() {
 
           {/* 3. Right: Scrolling Newspaper Cuttings */}
           <FadeUpReveal delay={0.6} className="w-full lg:w-[30%] shrink-0">
-            <NewsTicker />
+            <NewsTicker scroll1={scroll1} scroll2={scroll2} />
           </FadeUpReveal>
 
         </div>
@@ -54,6 +60,14 @@ export default function Home() {
 
       <FadeUpReveal>
         <Articles />
+      </FadeUpReveal>
+
+      <FadeUpReveal>
+        <Gallery />
+      </FadeUpReveal>
+
+      <FadeUpReveal>
+        <MediaSection />
       </FadeUpReveal>
 
       <LiveSocialFeed />
