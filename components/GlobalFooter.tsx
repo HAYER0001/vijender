@@ -24,8 +24,14 @@ export function GlobalFooter() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FF9933] to-[#FF9933]/70 flex items-center justify-center text-white font-bold text-sm font-[family-name:var(--font-khand)]">
-                VP
+              <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shrink-0 relative">
+                <Image
+                  src="/images/bjp-logo.png"
+                  alt="BJP Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
               <div>
                 <h3 className="font-display text-base font-bold text-[#FF9933]">
@@ -107,7 +113,7 @@ export function GlobalFooter() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shrink-0 relative">
                 <Image
-                  src="/bjp-logo.png"
+                  src="/images/bjp-logo.png"
                   alt="BJP Logo"
                   width={40}
                   height={40}

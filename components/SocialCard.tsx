@@ -83,8 +83,14 @@ export function SocialCard({ post }: { post: SocialPost }) {
       
       <div className="relative p-6 sm:p-8 flex-1 flex flex-col pt-6">
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-saffron/20 to-green/20 flex items-center justify-center font-display font-bold text-green text-lg shrink-0">
-            {post.avatarInitials}
+          <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shrink-0 relative">
+            <Image
+              src="/images/bjp-logo.png"
+              alt="Avatar Logo"
+              width={48}
+              height={48}
+              className="object-contain"
+            />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1.5">

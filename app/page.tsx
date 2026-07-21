@@ -30,11 +30,11 @@ export default function Home() {
           
           {/* 2. Middle: Text content */}
           <div className="flex-1 lg:w-[40%] space-y-8 text-center lg:text-left z-20">
-            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-green drop-shadow-sm">
+            <h1 className="font-bastliga text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-green drop-shadow-sm">
               <KineticHeadline text="वादे नहीं" highlightText="ईरादे" />
             </h1>
             <FadeUpReveal delay={0.3}>
-              <p className="text-lg md:text-xl text-fg/80 max-w-xl mx-auto lg:mx-0 font-body leading-relaxed">
+              <p className="text-lg md:text-xl text-fg/80 max-w-xl mx-auto lg:mx-0 font-eagle leading-relaxed">
                 Vijender Pal Singh has been working for the people of Sri Karanpur since 1993. A dedicated BJP Karyakarta, driving infrastructure, social justice, and community welfare. Sabka Sath, Sabka Vikas.
               </p>
             </FadeUpReveal>
