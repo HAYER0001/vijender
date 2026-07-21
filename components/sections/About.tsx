@@ -42,7 +42,7 @@ export function About() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-          <div ref={contentRef} className="lg:col-span-3">
+          <div ref={contentRef} className="lg:col-span-3 card-editorial !p-8 sm:!p-12 !bg-[var(--page-bg)]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function About() {
               </p>
             </div>
 
-            <div className="reveal-item mt-10 grid grid-cols-3 gap-6 sm:gap-10 pt-10 border-t border-green/10">
+            <div className="reveal-item mt-10 grid grid-cols-3 gap-6 sm:gap-10 pt-10 border-t-4 border-[var(--page-border)]">
               <div className="text-center">
                 <div className="font-display text-3xl sm:text-4xl font-bold text-saffron">
                   30+
@@ -106,7 +106,7 @@ export function About() {
           </div>
 
           <div className="lg:col-span-2 space-y-6">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg ring-1 ring-green/5">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-4 border-[var(--page-fg)] shadow-[8px_8px_0px_var(--color-saffron)]">
               <Image
                 src="/images/vp-rally-1.jpg"
                 alt="Vijender Pal Singh at a public event"
@@ -116,14 +116,14 @@ export function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green/40 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-block px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-green">
+                <span className="inline-block px-4 py-2 rounded-full bg-[var(--page-surface)] border-2 border-[var(--page-fg)] text-xs font-bold uppercase tracking-wider text-[var(--page-fg)] shadow-[4px_4px_0px_var(--color-saffron)]">
                   Public Engagement
                 </span>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-md ring-1 ring-green/5">
+              <div className="relative aspect-square rounded-3xl overflow-hidden border-4 border-[var(--page-fg)] shadow-[6px_6px_0px_var(--color-saffron)]">
                 <Image
                   src="/images/vp-with-supporters.jpg"
                   alt="With supporters in Sri Karanpur"
@@ -132,7 +132,7 @@ export function About() {
                   sizes="25vw"
                 />
               </div>
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-md ring-1 ring-green/5">
+              <div className="relative aspect-square rounded-3xl overflow-hidden border-4 border-[var(--page-fg)] shadow-[6px_6px_0px_var(--color-saffron)]">
                 <Image
                   src="/images/vp-group-photo.jpg"
                   alt="Community gathering"

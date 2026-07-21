@@ -6,6 +6,7 @@ import { FadeUpReveal, KineticHeadline, ParallaxImage } from "@/components/Motio
 import { VectorAccentsBg, VectorAccentsFg } from "@/components/VectorAccents"
 import { FeaturedStory } from "@/components/FeaturedStory"
 import { MediaPlayer } from "@/components/MediaPlayer"
+import { Articles } from "@/components/sections/Articles"
 import Image from "next/image"
 
 export const revalidate = 3600
@@ -57,6 +58,8 @@ export default function Home() {
         <FeaturedStory />
         <MediaPlayer />
       </section>
+
+      <Articles />
 
       <LiveSocialFeed />
 

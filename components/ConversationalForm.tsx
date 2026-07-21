@@ -112,34 +112,34 @@ export function ConversationalForm() {
 
   if (submitted) {
     return (
-      <section id="contact" className="py-28 sm:py-36 bg-cream/40">
+      <section id="contact" className="py-28 sm:py-36 bg-[var(--page-bg)]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: "backOut" }}
+            className="card-editorial flex flex-col items-center"
           >
-            <div className="w-16 h-16 rounded-full bg-green/10 flex items-center justify-center mx-auto mb-6">
-              <Check className="w-8 h-8 text-green" />
+            <div className="w-16 h-16 rounded-full bg-[var(--page-bg)] border-4 border-[var(--page-fg)] flex items-center justify-center mx-auto mb-6 shadow-[4px_4px_0px_var(--color-saffron)]">
+              <Check className="w-8 h-8 text-green" strokeWidth={3} />
             </div>
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-green mb-3">
               Redirecting to WhatsApp
             </h3>
-            <p className="text-fg/70 text-base mb-2">
+            <p className="text-fg/80 text-base mb-6 max-w-md mx-auto">
               Your message has been compiled. WhatsApp will open with a
               pre-filled message to Vijender Pal Singh.
             </p>
             {data.documentName && (
-               <p className="text-saffron font-medium mb-8 bg-saffron/5 p-3 rounded-xl inline-block">
+               <p className="text-saffron-dark font-bold mb-8 bg-saffron/10 border-4 border-[var(--page-fg)] p-4 rounded-xl inline-block shadow-[4px_4px_0px_var(--page-fg)]">
                  Important: Don't forget to attach your document "{data.documentName}" in the WhatsApp chat!
                </p>
             )}
-            <br />
             <button
               onClick={resetForm}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-saffron text-white font-semibold text-sm hover:bg-saffron-dark transition-colors shadow-lg shadow-saffron/20 mt-4"
+              className="btn-pill w-auto mt-4"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4" strokeWidth={3} />
               Send Another Message
             </button>
           </motion.div>
