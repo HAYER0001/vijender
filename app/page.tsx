@@ -3,6 +3,7 @@ import { LiveSocialFeed } from "@/components/LiveSocialFeed"
 import { AIAnswerBlock } from "@/components/AIAnswerBlock"
 import { NewsTicker } from "@/components/NewsTicker"
 import { FadeUpReveal, KineticHeadline, ParallaxImage } from "@/components/MotionWrappers"
+import { VectorAccents } from "@/components/VectorAccents"
 import Image from "next/image"
 
 export const revalidate = 3600
@@ -12,17 +13,18 @@ export default function Home() {
     <>
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[var(--page-bg)]">
         <HeroCanvas />
+        <VectorAccents />
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
           
           {/* 1. Left: Portrait */}
-          <div className="relative w-full lg:w-[30%] max-w-md mx-auto shrink-0">
-            <ParallaxImage className="rounded-[3rem] shadow-[0_30px_60px_rgba(15,82,58,0.4)] hover:shadow-[0_40px_80px_rgba(255,153,51,0.5)] transition-shadow duration-700">
+          <div className="relative w-full lg:w-[30%] max-w-md mx-auto shrink-0 z-30">
+            <ParallaxImage className="transition-transform duration-700 hover:scale-105">
               <Image
                 src="/hero-portrait.png"
                 alt="Vijender Pal Singh"
                 width={600}
                 height={800}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover sticker-effect"
                 priority
               />
             </ParallaxImage>

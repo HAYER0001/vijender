@@ -32,6 +32,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(getInitialTheme())
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem("vps-theme")) {
+        setThemeState(e.matches ? "dark" : "light")
+      }
+    }
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
 
   useEffect(() => {

@@ -57,6 +57,7 @@
   --page-fg: #0B0F19;
   --page-surface: #FFFFFF;
   --page-border: #E2E8F0;
+  --sticker-stroke: #FFFFFF;
 }
 
 .dark {
@@ -64,6 +65,7 @@
   --page-fg: #F1F5F9;
   --page-surface: #101528;
   --page-border: #1E293B;
+  --sticker-stroke: #1E293B;
   --color-saffron: #FF8533;
   --color-green: #0A5A3B;
 }
@@ -77,6 +79,14 @@ body {
 ::selection {
   background: #FF9933;
   color: #FFFFFF;
+}
+
+.sticker-effect {
+  filter: 
+    drop-shadow(3px 3px 0 var(--sticker-stroke)) 
+    drop-shadow(-3px -3px 0 var(--sticker-stroke)) 
+    drop-shadow(3px -3px 0 var(--sticker-stroke)) 
+    drop-shadow(-3px 3px 0 var(--sticker-stroke));
 }
 
 @media (prefers-reduced-motion: reduce) {
