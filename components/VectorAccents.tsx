@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-export function VectorAccents() {
+export function VectorAccentsBg() {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Wavy Line 1 */}
@@ -61,3 +61,35 @@ export function VectorAccents() {
     </div>
   )
 }
+
+export function VectorAccentsFg() {
+  return (
+    <div className="absolute inset-0 pointer-events-none z-40 overflow-hidden">
+      {/* Hand-drawn underline crossing over the portrait */}
+      <motion.svg
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.9 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 1 }}
+        className="absolute top-[60%] left-[10%] w-[35%] text-saffron drop-shadow-md stroke-current"
+        viewBox="0 0 300 50"
+        fill="none"
+        strokeWidth="8"
+        strokeLinecap="round"
+      >
+        <path d="M0,25 C100,5 200,45 300,25" />
+      </motion.svg>
+
+      {/* Floating stars over the image */}
+      <motion.svg
+        initial={{ scale: 0, opacity: 0, rotate: 45 }}
+        animate={{ scale: 1, opacity: 1, rotate: 15 }}
+        transition={{ duration: 0.8, type: "spring", delay: 1.2 }}
+        className="absolute top-[25%] left-[25%] w-10 h-10 text-saffron-dark fill-current drop-shadow-lg"
+        viewBox="0 0 100 100"
+      >
+        <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
+      </motion.svg>
+    </div>
+  )
+}
+

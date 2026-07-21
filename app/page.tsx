@@ -3,7 +3,7 @@ import { LiveSocialFeed } from "@/components/LiveSocialFeed"
 import { AIAnswerBlock } from "@/components/AIAnswerBlock"
 import { NewsTicker } from "@/components/NewsTicker"
 import { FadeUpReveal, KineticHeadline, ParallaxImage } from "@/components/MotionWrappers"
-import { VectorAccents } from "@/components/VectorAccents"
+import { VectorAccentsBg, VectorAccentsFg } from "@/components/VectorAccents"
 import Image from "next/image"
 
 export const revalidate = 3600
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[var(--page-bg)]">
         <HeroCanvas />
-        <VectorAccents />
+        <VectorAccentsBg />
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
           
           {/* 1. Left: Portrait */}
@@ -48,6 +48,7 @@ export default function Home() {
           </FadeUpReveal>
 
         </div>
+        <VectorAccentsFg />
       </section>
 
       <LiveSocialFeed />
