@@ -4,6 +4,8 @@ import { AIAnswerBlock } from "@/components/AIAnswerBlock"
 import { NewsTicker } from "@/components/NewsTicker"
 import { FadeUpReveal, KineticHeadline, ParallaxImage } from "@/components/MotionWrappers"
 import { VectorAccentsBg, VectorAccentsFg } from "@/components/VectorAccents"
+import { FeaturedStory } from "@/components/FeaturedStory"
+import { MediaPlayer } from "@/components/MediaPlayer"
 import Image from "next/image"
 
 export const revalidate = 3600
@@ -49,6 +51,11 @@ export default function Home() {
 
         </div>
         <VectorAccentsFg />
+      </section>
+
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-20 relative">
+        <FeaturedStory />
+        <MediaPlayer />
       </section>
 
       <LiveSocialFeed />

@@ -59,12 +59,11 @@ export function SocialCard({ post }: { post: SocialPost }) {
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group bg-white border border-saffron/10 rounded-[2rem] shadow-xl shadow-saffron/5 overflow-hidden flex flex-col relative"
+      className="group card-editorial p-0 overflow-hidden flex flex-col relative !bg-[var(--page-surface)] hover:z-10"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-saffron/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* Platform Name on Top */}
-      <div className="relative px-6 pt-5 pb-4 border-b border-saffron/10 flex items-center justify-between bg-cream/30 z-10">
+      <div className="relative px-6 pt-5 pb-4 border-b-4 border-inherit flex items-center justify-between bg-black/5 dark:bg-white/5 z-10">
         <div className="flex items-center gap-2.5">
           <PlatformIcon className={`w-5 h-5 ${platformTextColors[post.platform]}`} />
           <span className={`font-display font-bold text-sm tracking-wide uppercase ${platformTextColors[post.platform]}`}>
@@ -131,7 +130,7 @@ export function SocialCard({ post }: { post: SocialPost }) {
         )}
       </div>
 
-      <div className="relative px-6 sm:px-8 py-4 border-t border-saffron/10 flex items-center justify-between bg-white z-10">
+      <div className="relative px-6 sm:px-8 py-4 border-t-4 border-inherit flex items-center justify-between bg-[var(--page-surface)] z-10">
         <div className="flex items-center gap-6 text-fg/45 text-sm font-medium">
           <button className="flex items-center gap-1.5 transition-colors hover:text-[#E1306C]">
             <Heart className="w-4 h-4" />

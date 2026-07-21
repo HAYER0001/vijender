@@ -134,7 +134,7 @@ export function GlobalNav() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-magnetic
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF9933] text-white text-sm font-semibold hover:bg-[#E67E22] transition-all duration-300 font-[family-name:var(--font-mukta)]"
+                    className="btn-pill font-[family-name:var(--font-mukta)] text-sm"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     Connect
@@ -200,7 +200,7 @@ export function GlobalNav() {
                 href="https://wa.me/919414089131?text=Hello"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#FF9933] text-white font-semibold text-sm hover:bg-[#E67E22] transition-all font-[family-name:var(--font-mukta)]"
+                className="mt-2 btn-pill w-full font-[family-name:var(--font-mukta)] text-sm"
               >
                 <Phone className="w-4 h-4" />
                 Connect on WhatsApp

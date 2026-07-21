@@ -172,7 +172,7 @@ export function ConversationalForm() {
         </div>
 
         <div className="max-w-xl mx-auto">
-          <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border border-saffron/10 shadow-xl shadow-saffron/5 p-6 sm:p-10">
+          <div className="card-editorial">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-2">
                 {stepIcons.map((Icon, i) => (
@@ -224,7 +224,7 @@ export function ConversationalForm() {
                           onChange={(e) => update("name", e.target.value)}
                           onKeyDown={(e) => e.key === "Enter" && data.name.trim().length >= 2 && villageInputRef.current?.focus()}
                           placeholder="Your Name (e.g. Ramesh Kumar)"
-                          className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all"
+                          className="input-editorial pl-12"
                           autoFocus
                         />
                       </div>
@@ -237,7 +237,7 @@ export function ConversationalForm() {
                           onChange={(e) => update("villageCity", e.target.value)}
                           onKeyDown={(e) => e.key === "Enter" && goNext()}
                           placeholder="Your Village / City"
-                          className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all"
+                          className="input-editorial pl-12"
                         />
                       </div>
                     </div>
@@ -253,7 +253,7 @@ export function ConversationalForm() {
                         onChange={(e) => update("gramPanchayat", e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && goNext()}
                         placeholder="Municipal Area / Gram Panchayat"
-                        className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all"
+                        className="input-editorial pl-12"
                         autoFocus
                       />
                     </div>
@@ -267,7 +267,7 @@ export function ConversationalForm() {
                         onChange={(e) => update("message", e.target.value)}
                         placeholder="Describe your query, suggestion, or grievance in detail..."
                         rows={4}
-                        className="w-full p-4 rounded-xl border border-green/10 bg-white focus:border-saffron/40 focus:ring-2 focus:ring-saffron/10 outline-none text-fg text-base transition-all resize-none mb-3"
+                        className="input-editorial resize-none mb-3 min-h-[120px]"
                         autoFocus
                       />
                       
@@ -330,10 +330,8 @@ export function ConversationalForm() {
                   <button
                     onClick={goNext}
                     disabled={!canProceed}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-                      canProceed
-                        ? "bg-saffron text-white shadow-md shadow-saffron/20 hover:bg-saffron-dark active:scale-[0.97]"
-                        : "bg-green/5 text-fg/30 cursor-not-allowed"
+                    className={`btn-pill text-sm ${
+                      !canProceed && "opacity-50 pointer-events-none"
                     }`}
                   >
                     Next
@@ -345,10 +343,8 @@ export function ConversationalForm() {
                   <button
                     onClick={handleSubmit}
                     disabled={!canProceed}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-                      canProceed
-                        ? "bg-green text-white shadow-md shadow-green/20 hover:bg-green-light active:scale-[0.97]"
-                        : "bg-green/5 text-fg/30 cursor-not-allowed"
+                    className={`btn-pill text-sm ${
+                      !canProceed && "opacity-50 pointer-events-none"
                     }`}
                   >
                     <Send className="w-4 h-4" />
@@ -375,10 +371,8 @@ export function ConversationalForm() {
             <button
               onClick={goNext}
               disabled={!canProceed}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-                canProceed
-                  ? "bg-saffron text-white shadow-md shadow-saffron/20"
-                  : "bg-green/5 text-fg/30 cursor-not-allowed"
+              className={`btn-pill text-sm ${
+                !canProceed && "opacity-50 pointer-events-none"
               }`}
             >
               Next
@@ -390,10 +384,8 @@ export function ConversationalForm() {
             <button
               onClick={handleSubmit}
               disabled={!canProceed}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${
-                canProceed
-                  ? "bg-green text-white shadow-md shadow-green/20"
-                  : "bg-green/5 text-fg/30 cursor-not-allowed"
+              className={`btn-pill text-sm ${
+                !canProceed && "opacity-50 pointer-events-none"
               }`}
             >
               <Send className="w-4 h-4" />
