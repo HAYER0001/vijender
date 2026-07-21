@@ -36,7 +36,7 @@ const MOCK_POSTS: SocialPost[] = [
     authorHandle: "@vijenderpals3cc",
     avatarInitials: "VP",
     content:
-      "Inspection of the newly constructed 19 FF Rail Track Underbridge in Sri Karanpur. This bridge eliminates the risk of crossing active railway lines for hundreds of families. Development that reaches every doorstep.",
+      "|| मन की बात कार्यक्रम ||\nदेश के यशस्वी प्रधानमंत्री श्री नरेन्द्र मोदी जी 'मन की बात' कार्यक्रम के माध्यम से देशवासियों से संवाद करेंगे।\n🗓️ : रविवार, 28 जून 2026\n\n#MannKiBaat #NarendraModi #VijenderPalSingh #SriKaranpur",
     imageUrl: "/images/underbridge-1.jpg",
     timestamp: "2026-07-15T14:00:00Z",
     timestampLabel: "4 days ago",
