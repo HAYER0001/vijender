@@ -30,7 +30,7 @@ export default function Home() {
           
           {/* 2. Middle: Text content */}
           <div className="flex-1 lg:w-[40%] space-y-8 text-center lg:text-left z-20">
-            <h1 className="font-bastliga text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-green drop-shadow-sm">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-green drop-shadow-sm">
               <KineticHeadline text="वादे नहीं" highlightText="ईरादे" />
             </h1>
             <FadeUpReveal delay={0.3}>

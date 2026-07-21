@@ -67,7 +67,7 @@ export function GlobalNav() {
               </div>
               <div className="hidden sm:block">
                 {reduced ? (
-                  <span className="text-sm font-semibold tracking-widest text-[#1F2937] font-[family-name:var(--font-khand)]">
+                  <span className="text-sm font-semibold tracking-widest text-[var(--page-fg)] font-[family-name:var(--font-khand)]">
                     {name}
                   </span>
                 ) : (
@@ -75,7 +75,7 @@ export function GlobalNav() {
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-sm font-semibold tracking-widest text-[#1F2937] font-[family-name:var(--font-khand)]"
+                    className="text-sm font-semibold tracking-widest text-[var(--page-fg)] font-[family-name:var(--font-khand)]"
                   >
                     {name.split("").map((char, i) => (
                       <motion.span
