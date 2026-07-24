@@ -8,9 +8,8 @@ interface NewsTickerProps {
 }
 
 export function NewsTicker({ scroll1, scroll2 }: NewsTickerProps) {
-  // Fallbacks if folders are empty
-  const s1 = scroll1.length > 0 ? scroll1 : ["/images/kisan-train-clipping.jpg", "/images/zrucc-document.jpg"]
-  const s2 = scroll2.length > 0 ? scroll2 : ["/images/zrucc-certificate.jpg", "/images/bjp-banner.jpg"]
+  const s1 = scroll1.length > 0 ? scroll1 : ["/media/images/Dainik Bhaskar 01-03-2020.jpg", "/media/images/Lok Sammat 16-09-2021.jpg"]
+  const s2 = scroll2.length > 0 ? scroll2 : ["/media/images/Rajasthan Patrika 08-08-20.jpg", "/media/images/Seema Kiran 17-10-2022.jpg"]
 
   return (
     <div className="relative w-full h-[500px] lg:h-[700px] overflow-hidden rounded-3xl group flex gap-4">
