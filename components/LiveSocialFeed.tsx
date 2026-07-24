@@ -19,7 +19,7 @@ export async function LiveSocialFeed() {
         avatarInitials: "VP",
         content:
           "Honoured to be appointed as ZRUCC Member for North Western Railways. I will continue to raise the voice of Sri Karanpur's citizens on every platform — ensuring our railway infrastructure serves the people first.",
-        imageUrl: "/media/images/Seema Sandesh 05-05-20.jpg",
+        imageUrl: "/media/images/Seema%20Sandesh%2005-05-20.jpg",
         timestamp: "2026-07-08T11:00:00Z",
         timestampLabel: "Last week",
         likes: 2100,

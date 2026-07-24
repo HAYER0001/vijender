@@ -8,7 +8,7 @@ export function getImagesFromDirectory(directory: string): string[] {
     const files = fs.readdirSync(dirPath)
     return files
       .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
-      .map(file => `/${directory}/${file}`)
+      .map(file => `/${directory}/${encodeURIComponent(file)}`)
   } catch (error) {
     console.error(`Error reading directory ${directory}:`, error)
     return []
@@ -22,7 +22,7 @@ export function getVideosFromDirectory(directory: string): string[] {
     const files = fs.readdirSync(dirPath)
     return files
       .filter(file => /\.(mp4|webm|ogg)$/i.test(file))
-      .map(file => `/${directory}/${file}`)
+      .map(file => `/${directory}/${encodeURIComponent(file)}`)
   } catch (error) {
     console.error(`Error reading directory ${directory}:`, error)
     return []

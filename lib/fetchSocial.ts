@@ -22,7 +22,7 @@ const MOCK_POSTS: SocialPost[] = [
     avatarInitials: "VP",
     content:
       "Proud to have secured the Kisan Train for our hardworking Kinnow farmers from Ganganagar to Bangladesh. This will open new export markets and ensure better prices for our farmers. Sabka Sath, Sabka Vikas! 🚂🇮🇳",
-    imageUrl: "/media/images/Lok Sammat 16-09-2021.jpg",
+    imageUrl: "/media/images/Lok%20Sammat%2016-09-2021.jpg",
     timestamp: "2026-07-18T10:30:00Z",
     timestampLabel: "1 day ago",
     likes: 2847,
@@ -37,7 +37,7 @@ const MOCK_POSTS: SocialPost[] = [
     avatarInitials: "VP",
     content:
       "|| मन की बात कार्यक्रम ||\nदेश के यशस्वी प्रधानमंत्री श्री नरेन्द्र मोदी जी 'मन की बात' कार्यक्रम के माध्यम से देशवासियों से संवाद करेंगे।\n🗓️ : रविवार, 28 जून 2026\n\n#MannKiBaat #NarendraModi #VijenderPalSingh #SriKaranpur",
-    imageUrl: "/media/images/India News 05-06-2026.jpg",
+    imageUrl: "/media/images/India%20News%2005-06-2026.jpg",
     timestamp: "2026-07-15T14:00:00Z",
     timestampLabel: "4 days ago",
     likes: 4521,
@@ -52,7 +52,7 @@ const MOCK_POSTS: SocialPost[] = [
     avatarInitials: "VP",
     content:
       "Grateful to the party leadership for appointing me as State Co-Incharge of BJP Minority Morcha, Rajasthan. I will work tirelessly to strengthen our bonds across all communities and ensure every voice is heard.",
-    imageUrl: "/media/images/Rajasthan Patrika 01-03-2020.jpg",
+    imageUrl: "/media/images/Rajasthan%20Patrika%2001-03-2020.jpg",
     timestamp: "2026-07-10T09:00:00Z",
     timestampLabel: "1 week ago",
     likes: 3102,
