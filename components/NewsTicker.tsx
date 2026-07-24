@@ -46,15 +46,14 @@ export function NewsTicker({ scroll1, scroll2 }: NewsTickerProps) {
             href={src}
             target="_blank"
             rel="noopener noreferrer"
-            className="block relative w-full rounded-lg overflow-hidden shadow-2xl border-[4px] border-white transition-all duration-500 hover:z-20 hover:scale-105 cursor-pointer rotate-2 hover:rotate-0"
+            className="block relative w-full aspect-[3/4] bg-white/10 rounded-lg overflow-hidden shadow-2xl border-[4px] border-white transition-all duration-500 hover:z-20 hover:scale-105 cursor-pointer rotate-2 hover:rotate-0 flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-saffron/10 mix-blend-multiply opacity-50 transition-opacity hover:opacity-0" />
+            <div className="absolute inset-0 bg-saffron/10 mix-blend-multiply opacity-50 transition-opacity hover:opacity-0 z-10" />
             <Image
               src={src}
               alt="News Clipping 1"
-              width={300}
-              height={400}
-              className="w-full h-auto object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+              fill
+              className="object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
               unoptimized
             />
           </a>
@@ -69,15 +68,14 @@ export function NewsTicker({ scroll1, scroll2 }: NewsTickerProps) {
             href={src}
             target="_blank"
             rel="noopener noreferrer"
-            className="block relative w-full rounded-lg overflow-hidden shadow-2xl border-[4px] border-white transition-all duration-500 hover:z-20 hover:scale-105 cursor-pointer -rotate-2 hover:rotate-0"
+            className="block relative w-full aspect-[3/4] bg-white/10 rounded-lg overflow-hidden shadow-2xl border-[4px] border-white transition-all duration-500 hover:z-20 hover:scale-105 cursor-pointer -rotate-2 hover:rotate-0 flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-green/10 mix-blend-multiply opacity-50 transition-opacity hover:opacity-0" />
+            <div className="absolute inset-0 bg-green/10 mix-blend-multiply opacity-50 transition-opacity hover:opacity-0 z-10" />
             <Image
               src={src}
               alt="News Clipping 2"
-              width={300}
-              height={400}
-              className="w-full h-auto object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+              fill
+              className="object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
               unoptimized
             />
           </a>
