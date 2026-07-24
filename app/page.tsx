@@ -29,9 +29,9 @@ export default function Home() {
               <Image
                 src="/hero-portrait.png"
                 alt="Vijender Pal Singh"
-                width={600}
-                height={800}
-                className="w-full h-auto object-cover sticker-effect"
+                width={816}
+                height={1900}
+                className="w-full h-auto object-contain sticker-effect"
                 priority
               />
             </ParallaxImage>

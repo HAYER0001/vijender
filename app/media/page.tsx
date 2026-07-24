@@ -1,5 +1,6 @@
 import { SchemaMarkup } from "@/components/SchemaMarkup"
 import { MediaSection } from "@/components/sections/MediaSection"
+import { MasonryGallery } from "@/components/MasonryGallery"
 import { getImagesFromDirectory } from "@/lib/mediaManager"
 import Image from "next/image"
 
@@ -97,20 +98,7 @@ export default function MediaPage() {
               <h2 className="font-display text-3xl font-bold text-green mb-6 border-b border-green/10 pb-4">
                 Press Photos
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {mediaPhotos.map((src, idx) => (
-                  <div key={idx} className="relative aspect-square rounded-xl overflow-hidden group shadow-md border-2 border-white">
-                    <div className="absolute inset-0 bg-saffron/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                    <Image 
-                      src={src} 
-                      alt={`Press Photo ${idx + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      unoptimized
-                    />
-                  </div>
-                ))}
-              </div>
+              <MasonryGallery images={mediaPhotos} />
             </section>
           )}
 

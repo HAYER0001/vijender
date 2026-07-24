@@ -1,4 +1,5 @@
 import { getImagesFromDirectory } from "@/lib/mediaManager"
+import { MasonryGallery } from "@/components/MasonryGallery"
 import Image from "next/image"
 
 export function Gallery() {
@@ -14,19 +15,8 @@ export function Gallery() {
           <p className="mt-4 text-fg/70">Moments from the grassroots.</p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((src, idx) => (
-            <div key={idx} className="relative aspect-square rounded-2xl overflow-hidden group shadow-md border-4 border-white">
-              <div className="absolute inset-0 bg-saffron/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-              <Image 
-                src={src} 
-                alt={`Gallery Image ${idx + 1}`}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                unoptimized
-              />
-            </div>
-          ))}
+        <div className="mt-8">
+          <MasonryGallery images={images.slice(0, 6)} />
         </div>
       </div>
     </section>
