@@ -93,8 +93,6 @@ export default function RootLayout({
     >
       <head>
         <link rel="canonical" href={baseUrl} />
-        <link rel="apple-touch-icon" href="/images/bjp-icon.png" />
-        <link rel="apple-touch-startup-image" href="/images/bjp-logo.png" />
         <meta name="geo.region" content="IN-RJ" />
         <meta name="geo.placename" content="Sri Karanpur" />
         <meta name="theme-color" content="#FF9933" />
