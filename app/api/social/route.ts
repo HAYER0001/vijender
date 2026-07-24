@@ -21,7 +21,7 @@ export async function GET() {
       avatarInitials: "VP",
       content:
         "Proud to have secured the Kisan Train for our hardworking Kinnow farmers from Ganganagar to Bangladesh. This will open new export markets and ensure better prices for our farmers. Sabka Sath, Sabka Vikas! 🚂🇮🇳",
-      imageUrl: "/images/kisan-train-scene.jpg",
+      imageUrl: "/media/images/Lok Sammat 16-09-2021.jpg",
       timestamp: new Date(Date.now() - 86400000).toISOString(),
       timestampLabel: "1 day ago",
       likes: 2847,
@@ -36,7 +36,7 @@ export async function GET() {
       avatarInitials: "VP",
       content:
         "|| मन की बात कार्यक्रम ||\nदेश के यशस्वी प्रधानमंत्री श्री नरेन्द्र मोदी जी 'मन की बात' कार्यक्रम के माध्यम से देशवासियों से संवाद करेंगे।\n🗓️ : रविवार, 28 जून 2026\n\n#MannKiBaat #NarendraModi #VijenderPalSingh #SriKaranpur",
-      imageUrl: "/images/social-post-2.jpg",
+      imageUrl: "/media/images/India News 05-06-2026.jpg",
       timestamp: new Date(Date.now() - 345600000).toISOString(),
       timestampLabel: "4 days ago",
       likes: 4521,
@@ -51,7 +51,7 @@ export async function GET() {
       avatarInitials: "VP",
       content:
         "Grateful to the party leadership for appointing me as State Co-Incharge of BJP Minority Morcha, Rajasthan. I will work tirelessly to strengthen our bonds across all communities and ensure every voice is heard.",
-      imageUrl: "/images/morcha-event.jpg",
+      imageUrl: "/media/images/Rajasthan Patrika 01-03-2020.jpg",
       timestamp: new Date(Date.now() - 604800000).toISOString(),
       timestampLabel: "1 week ago",
       likes: 3102,
