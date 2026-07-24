@@ -44,10 +44,10 @@ export default function Home() {
             </h1>
             <FadeUpReveal delay={0.3}>
               <p className="text-xl md:text-2xl text-fg font-sans font-semibold mb-2">
-                Technology Professional • Social Worker • BJP Karyakarta
+                Technology Professional • Social Worker • <span className="font-bastliga text-3xl md:text-4xl text-saffron tracking-wider font-normal">BJP Karyakarta</span>
               </p>
               <p className="text-lg md:text-xl text-fg/80 max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed">
-                Driven by service. Powered by technology. Committed to Nation First.
+                Driven by service. Powered by <span className="font-eagle text-green font-normal text-2xl">technology</span>. Committed to <span className="font-rockybilly text-saffron-dark font-normal text-3xl">Nation First</span>.
               </p>
             </FadeUpReveal>
           </div>
