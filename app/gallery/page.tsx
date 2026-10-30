@@ -1,5 +1,5 @@
 import { getImagesFromDirectory } from "@/lib/mediaManager"
-import { MasonryGallery } from "@/components/MasonryGallery"
+import { RandomizedMosaicGallery } from "@/components/RandomizedMosaicGallery"
 
 export const metadata = {
   title: "Public Gallery",
@@ -25,7 +25,7 @@ export default function GalleryPage() {
         </div>
 
         {images.length > 0 ? (
-          <MasonryGallery images={images} />
+          <RandomizedMosaicGallery images={images} />
         ) : (
           <div className="text-center py-20 text-fg/50">
             No images found in the gallery.

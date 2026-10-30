@@ -8,7 +8,6 @@ import { GlobalNav } from "@/components/GlobalNav"
 import { GlobalFooter } from "@/components/GlobalFooter"
 import { StickyContact } from "@/components/sections/StickyContact"
 import { SchemaMarkup } from "@/components/SchemaMarkup"
-import { AnimatePresenceWrapper } from "@/components/AnimatePresenceWrapper"
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { SmoothScroll } from "@/components/sections/SmoothScroll"
@@ -65,10 +64,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/hero-portrait.png",
-        width: 800,
-        height: 1200,
-        alt: "Vijender Pal Singh — BJP Karyakarta, Sri Karanpur",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Vijender Pal Singh with Hon'ble Rajasthan CM Bhajan Lal Sharma",
       },
     ],
   },
@@ -77,7 +76,16 @@ export const metadata: Metadata = {
     title: "Vijender Pal Singh — BJP Karyakarta, Sri Karanpur",
     description:
       "BJP karyakarta since 1993. Sabka Sath, Sabka Vikas in Sri Karanpur.",
-    images: ["/hero-portrait.png"],
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 }
 

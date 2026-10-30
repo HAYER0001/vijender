@@ -1,4 +1,5 @@
 import { VerticalTimeline } from "@/components/VerticalTimeline"
+import { TheStackTestimonial } from "@/components/TheStackTestimonial"
 
 export const metadata = {
   title: "About Me",
@@ -62,18 +63,103 @@ export default function JourneyPage() {
 
             {/* ORGANIZATIONAL RESPONSIBILITIES */}
             <div>
-              <h3 className="font-display font-bold text-3xl text-green mb-4">Organizational Responsibilities</h3>
-              <p>Over the years, I have been entrusted with several responsibilities within the party and public organizations, including:</p>
-              <ul className="list-disc pl-6 space-y-2 mt-4">
-                <li>State Co-Incharge, BJP Minority Morcha, Rajasthan (Present)</li>
-                <li>Former Member, Rajasthan Community Leader Panel, National Commission for Minorities</li>
-                <li>Former Member, BJP District Working Committee</li>
-                <li>Former District IT Coordinator, BJP Kisan Morcha, Sri Ganganagar</li>
-                <li>Former Member, BJP Kisan Morcha Rajasthan Social Media Team</li>
-                <li>Former Bikaner Division In-charge, BJP Kisan Morcha Social Media</li>
-                <li>Former District Media In-charge &amp; District Vice-President, Bharat Tibet Sahyog Manch, Sri Ganganagar</li>
-              </ul>
-              <p className="mt-4">I also had the privilege of managing the Election War Room and Digital Media War Room for Union Minister Shri Arjun Ram Meghwal during the 2019 and 2024 Lok Sabha Elections, contributing to strategic communication and digital outreach.</p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+                <h3 className="font-display font-bold text-3xl text-green">Organizational Responsibilities</h3>
+                <span className="text-xs font-mono font-medium text-saffron bg-saffron/10 px-3 py-1 rounded-full self-start sm:self-auto">
+                  Over 3 Decades of Grassroots Dedication
+                </span>
+              </div>
+              <p className="text-fg/80 mb-6">
+                Over the years, I have been entrusted with key leadership responsibilities within the Bharatiya Janata Party and allied public service bodies:
+              </p>
+
+              {/* Responsibilities Grid Filling the Space Beautifully */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 not-prose mb-6">
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-saffron/20 shadow-sm hover:border-saffron hover:shadow-md transition-all">
+                  <div className="flex items-center gap-2 text-saffron text-xs font-bold uppercase tracking-wider mb-2">
+                    <span className="w-2 h-2 rounded-full bg-saffron animate-pulse" />
+                    Present Leadership
+                  </div>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    State Co-Incharge
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    BJP Minority Morcha, Rajasthan
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:border-saffron hover:shadow-md transition-all">
+                  <span className="text-xs font-mono text-fg/50 block mb-2">National Body</span>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    Community Leader Panel
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    National Commission for Minorities (Rajasthan Panel)
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:border-saffron hover:shadow-md transition-all">
+                  <span className="text-xs font-mono text-fg/50 block mb-2">District Committee</span>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    District Working Committee
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    Former Member, BJP District Working Committee
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:border-saffron hover:shadow-md transition-all">
+                  <span className="text-xs font-mono text-fg/50 block mb-2">Kisan Morcha</span>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    District IT Coordinator
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    BJP Kisan Morcha, Sri Ganganagar
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:border-saffron hover:shadow-md transition-all">
+                  <span className="text-xs font-mono text-fg/50 block mb-2">State Social Media</span>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    State Social Media Team
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    BJP Kisan Morcha Rajasthan
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:border-saffron hover:shadow-md transition-all">
+                  <span className="text-xs font-mono text-fg/50 block mb-2">Division Incharge</span>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    Bikaner Division In-charge
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    BJP Kisan Morcha Social Media
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:border-saffron hover:shadow-md transition-all md:col-span-2 lg:col-span-3">
+                  <span className="text-xs font-mono text-fg/50 block mb-2">Nationalist Outreach</span>
+                  <h4 className="font-display font-bold text-lg text-green dark:text-emerald-400 mb-1">
+                    District Media In-charge &amp; District Vice-President
+                  </h4>
+                  <p className="text-xs text-fg/70 font-sans">
+                    Bharat Tibet Sahyog Manch, Sri Ganganagar
+                  </p>
+                </div>
+              </div>
+
+              {/* Highlight Card: Lok Sabha War Room */}
+              <div className="p-5 rounded-2xl bg-gradient-to-r from-saffron/10 via-saffron/5 to-transparent border-l-4 border-saffron not-prose">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron">
+                    Election Strategy &amp; War Room Leadership
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base text-fg/85 leading-relaxed">
+                  Entrusted with managing the <strong>Election War Room</strong> and <strong>Digital Media War Room</strong> for Union Minister Shri Arjun Ram Meghwal during the 2019 and 2024 Lok Sabha Elections, spearheading strategic communication, real-time polling operations, and digital grassroots mobilization across Bikaner and regional constituencies.
+                </p>
+              </div>
             </div>
 
             <hr className="border-green/20" />
@@ -92,7 +178,9 @@ export default function JourneyPage() {
             {/* LEADERSHIP PHILOSOPHY */}
             <div>
               <h3 className="font-display font-bold text-3xl text-green mb-4">Leadership Philosophy</h3>
-              <p className="font-semibold text-lg text-fg">True leadership is not about authority—it is about responsibility.</p>
+              <p className="font-semibold text-base sm:text-[1.02rem] text-fg/90 italic">
+                &ldquo;True leadership is not about authority—it is about responsibility.&rdquo;
+              </p>
               <p>It is about listening before speaking, serving before seeking recognition, and building institutions that outlast individuals.</p>
               <p className="mt-4">My work is guided by the principles of:</p>
               <div className="flex flex-wrap gap-3 mt-4">
@@ -124,28 +212,9 @@ export default function JourneyPage() {
 
             <hr className="border-green/20" />
 
-            {/* CORE VALUES */}
-            <div>
-              <h3 className="font-display font-bold text-3xl text-green mb-4">Core Values</h3>
-              <ul className="space-y-4">
-                <li><strong className="text-saffron-dark text-xl block mb-1">Nation First</strong> Every decision should strengthen India and serve its people.</li>
-                <li><strong className="text-saffron-dark text-xl block mb-1">Integrity</strong> Honesty, transparency, and accountability remain non-negotiable.</li>
-                <li><strong className="text-saffron-dark text-xl block mb-1">Service</strong> Public service is both a responsibility and a privilege.</li>
-                <li><strong className="text-saffron-dark text-xl block mb-1">Inclusive Development</strong> Progress is meaningful only when it benefits every citizen.</li>
-                <li><strong className="text-saffron-dark text-xl block mb-1">Innovation</strong> Technology is a catalyst for better governance and better lives.</li>
-                <li><strong className="text-saffron-dark text-xl block mb-1">Grassroots Empowerment</strong> Strong communities build a strong nation.</li>
-                <li><strong className="text-saffron-dark text-xl block mb-1">Continuous Learning</strong> Leadership demands humility, adaptability, and lifelong learning.</li>
-              </ul>
-            </div>
-
-            <hr className="border-green/20" />
-
-            {/* A PERSONAL COMMITMENT */}
-            <div className="bg-green/5 p-8 rounded-2xl border-l-4 border-green">
-              <h3 className="font-display font-bold text-2xl text-green mb-4">A Personal Commitment</h3>
-              <p className="font-sans italic text-lg leading-relaxed text-fg/90">
-                "I believe leadership begins with listening, grows through service, and earns trust through action. My commitment is to work with integrity, embrace innovation, and dedicate myself to building a stronger, more inclusive, and developed India—where every citizen has the opportunity to grow with dignity and contribute to the nation's progress."
-              </p>
+            {/* CORE VALUES & PERSONAL COMMITMENT — THE STACK TESTIMONIAL (JITTER STYLE) */}
+            <div className="not-prose">
+              <TheStackTestimonial />
             </div>
             
           </div>

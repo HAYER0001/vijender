@@ -7,6 +7,7 @@ import { VectorAccentsBg, VectorAccentsFg } from "@/components/VectorAccents"
 import { Articles } from "@/components/sections/Articles"
 import { Gallery } from "@/components/sections/Gallery"
 import { MediaSection } from "@/components/sections/MediaSection"
+import { TheStackTestimonial } from "@/components/TheStackTestimonial"
 import { getImagesFromDirectory } from "@/lib/mediaManager"
 import Image from "next/image"
 
@@ -63,6 +64,12 @@ export default function Home() {
 
       <FadeUpReveal>
         <Articles />
+      </FadeUpReveal>
+
+      <FadeUpReveal>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <TheStackTestimonial />
+        </div>
       </FadeUpReveal>
 
       <FadeUpReveal>
